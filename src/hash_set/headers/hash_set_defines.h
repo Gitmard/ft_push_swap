@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hash_set.h                                         :+:      :+:    :+:   */
+/*   hash_set_defines.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 17:32:27 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/16 10:50:09 by smenard          ###   ########.fr       */
+/*   Created: 2025/12/16 10:41:51 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/16 10:48:42 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HASH_SET_H
-# define HASH_SET_H
-# include "hash_set_defines.h"
-# include "hash_set_includes.h"
+#ifndef HASH_SET_DEFINES_H
+# define HASH_SET_DEFINES_H
 
 #endif

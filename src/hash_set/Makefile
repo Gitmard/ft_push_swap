@@ -2,7 +2,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR=./
 
-INCLUDES=headers
+LIB_DIR = ../lib
+
+INCLUDES=-Iheaders -I$(LIB_DIR) -I$(LIB_DIR)/headers
 
 SRC_FILES = $(SRC_DIR)/hash_set.c \
 
@@ -23,7 +25,7 @@ $(NAME) : $(SRCS_OBJ)
 	ar rcs $(NAME) $(SRCS_OBJ)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) -c $(CFLAGS) -MMD -MP $< -o $@ -I$(INCLUDES)
+	$(CC) -c $(CFLAGS) -MMD -MP $< -o $@ $(INCLUDES)
 
 clean:
 	rm -rf $(ALL_OBJ) $(DFILES)

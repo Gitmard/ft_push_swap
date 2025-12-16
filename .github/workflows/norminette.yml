@@ -1,0 +1,77 @@
+name: Norminette
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ "master", "dev" ]
+
+jobs:
+  norminette-check:
+    runs-on: ubuntu-22.04
+    permissions:
+      pull-requests: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install norminette
+        run: |
+          python3 -m pip install --upgrade pip setuptools
+          python3 -m pip install norminette
+
+      - name: Running norminette
+        id: norminette
+        shell: bash
+        run: |
+          norminette **/*.c **/*.h | tee norminette.log
+          if grep -qE "Error|Error!" norminette.log; then
+            echo "status=failed" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          echo "status=passed" >> $GITHUB_OUTPUT
+          echo "✅ Norminette passed successfully"
+
+      - name: Comment PR on failure
+        if: failure() && steps.norminette.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const log = fs.readFileSync('norminette.log', 'utf8');
+            const comment = `## ❌ Norminette Check Failed
+
+            Des erreurs de norme ont été détectées :
+
+            \`\`\`
+            ${log}
+            \`\`\`
+
+            Merci de corriger ces erreurs avant de merger cette PR.`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+      - name: Comment PR on success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = `## ✅ Norminette Check Passed
+
+            Tous les fichiers respectent la norme de l'école 42 !`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });

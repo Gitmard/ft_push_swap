@@ -6,10 +6,11 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 17:32:25 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/16 10:32:50 by smenard          ###   ########.fr       */
+/*   Updated: 2025/12/16 13:12:33 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEBUG_H
+# define DEBUG_H
 
 #endif

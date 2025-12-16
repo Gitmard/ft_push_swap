@@ -2,13 +2,16 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIST_DIR = list/
 
+MEM_DIR = mem/
+
 INCLUDES=headers
 
 SRC_FILES = ./$(LIST_DIR)ft_lstadd.c \
 	./$(LIST_DIR)ft_lstclear.c \
 	./$(LIST_DIR)ft_lstnew.c \
 	./$(LIST_DIR)ft_lstremove.c \
-	./$(LIST_DIR)ft_lstadd.c
+	./$(LIST_DIR)ft_lstadd.c \
+	./$(MEM_DIR)mem.c
 
 SRCS_OBJ = $(SRC_FILES:.c=.o)
 

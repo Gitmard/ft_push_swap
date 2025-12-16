@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:10:00 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/16 15:14:46 by smenard          ###   ########.fr       */
+/*   Updated: 2025/12/16 15:47:25 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIST_H
 
 # include "lib_defines.h"
+# include "../lib.h"
 
 /* ft_lstnew.c */
 t_list	*ft_lstnew(int value, size_t *size);

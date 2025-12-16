@@ -13,7 +13,7 @@
 #ifndef MEM_H
 # define MEM_H
 
-# include "mem_defines.h"
+# include "headers/mem_defines.h"
 
 void	ft_memset(void *ptr, uint8_t b, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);

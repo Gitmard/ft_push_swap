@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_includes.h                                   :+:      :+:    :+:   */
+/*   instructions_defines.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 16:50:59 by vquetier          #+#    #+#             */
-/*   Updated: 2025/12/17 15:39:27 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2025/12/17 15:18:31 by vquetier          #+#    #+#             */
+/*   Updated: 2025/12/17 15:42:25 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_INCLUDES_H
-# define PARSE_INCLUDES_H
+#ifndef INSTRUCTIONS_DEFINES_H
+# define INSTRUCTIONS_DEFINES_H
 
-# include <stdint.h>
-# include <stdlib.h>
-# include <limits.h>
-# include "hash_set.h"
-# include "lib.h"
+# include "instructions_includes.h"
 
 #endif

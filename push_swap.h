@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hash_set_defines.h                                 :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 10:41:51 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/17 13:11:12 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2025/12/15 17:32:15 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/17 13:00:22 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HASH_SET_DEFINES_H
-# define HASH_SET_DEFINES_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-# include "hash_set_includes.h"
-
-# define FREE_STRUCT 1
-# define FREE_TABLE 2
-# define FREE_USED 4
-# define FREE_SET_ALL 7
-
-typedef enum e_set_result
-{
-	SUCCESS,
-	ALREADY_IN
-}	t_set_result;
-
-typedef struct s_set
-{
-	int			*table;
-	bool		*used;
-	uint32_t	size;
-	uint32_t	mask;
-}	t_set;
+# include "parse.h"
 
 #endif

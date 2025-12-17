@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_lib.h                                        :+:      :+:    :+:   */
+/*   lib_includes.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 11:04:53 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/16 11:05:05 by smenard          ###   ########.fr       */
+/*   Created: 2025/12/16 11:18:48 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/16 14:44:32 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_LIB_H
-# define PARSE_LIB_H
+#ifndef LIB_INCLUDES_H
+# define LIB_INCLUDES_H
+
+# include <stdlib.h>
 
 #endif

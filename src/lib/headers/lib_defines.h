@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hash_set_defines.h                                 :+:      :+:    :+:   */
+/*   lib_defines.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 10:41:51 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/17 13:11:12 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2025/12/16 11:18:22 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/17 13:08:20 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HASH_SET_DEFINES_H
-# define HASH_SET_DEFINES_H
+#ifndef LIB_DEFINES_H
+# define LIB_DEFINES_H
 
-# include "hash_set_includes.h"
+# include "lib_includes.h"
 
-# define FREE_STRUCT 1
-# define FREE_TABLE 2
-# define FREE_USED 4
-# define FREE_SET_ALL 7
-
-typedef enum e_set_result
+typedef struct s_list
 {
-	SUCCESS,
-	ALREADY_IN
-}	t_set_result;
+	struct s_list	*next;
+	struct s_list	*prev;
+	int				value;
+}					t_list;
 
-typedef struct s_set
+typedef struct s_stack
 {
-	int			*table;
-	bool		*used;
-	uint32_t	size;
-	uint32_t	mask;
-}	t_set;
+	t_list			*head;
+	t_list			*tail;
+	size_t			size;
+}					t_stack;
+
+typedef struct s_stacks
+{
+	t_stack			*stack_a;
+	t_stack			*stack_b;
+	size_t			combined_sizes;
+}					t_stacks;
 
 #endif

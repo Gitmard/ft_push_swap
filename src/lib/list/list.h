@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hash_set_defines.h                                 :+:      :+:    :+:   */
+/*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 10:41:51 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/17 13:11:12 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2025/12/16 13:10:00 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/17 14:55:00 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HASH_SET_DEFINES_H
-# define HASH_SET_DEFINES_H
+#ifndef LIST_H
+# define LIST_H
 
-# include "hash_set_includes.h"
+# include "lib_defines.h"
+# include "lib.h"
 
-# define FREE_STRUCT 1
-# define FREE_TABLE 2
-# define FREE_USED 4
-# define FREE_SET_ALL 7
-
-typedef enum e_set_result
-{
-	SUCCESS,
-	ALREADY_IN
-}	t_set_result;
-
-typedef struct s_set
-{
-	int			*table;
-	bool		*used;
-	uint32_t	size;
-	uint32_t	mask;
-}	t_set;
+t_list	*ft_lstnew(int value);
+void	*ft_lstclear(t_list *lst_start);
 
 #endif

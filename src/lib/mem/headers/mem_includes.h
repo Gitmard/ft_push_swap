@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug.h                                            :+:      :+:    :+:   */
+/*   mem_includes.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 17:32:25 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/16 13:12:33 by smenard          ###   ########.fr       */
+/*   Created: 2025/12/16 15:22:44 by vquetier          #+#    #+#             */
+/*   Updated: 2025/12/16 15:24:57 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEBUG_H
-# define DEBUG_H
+#ifndef MEM_INCLUDES_H
+# define MEM_INCLUDES_H
+
+# include <stdint.h>
+# include <stdlib.h>
 
 #endif

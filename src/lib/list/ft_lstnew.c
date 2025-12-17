@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hash_set_defines.h                                 :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 10:41:51 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/17 13:11:12 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2025/12/16 13:39:58 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/17 12:53:10 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HASH_SET_DEFINES_H
-# define HASH_SET_DEFINES_H
+#include "list.h"
 
-# include "hash_set_includes.h"
-
-# define FREE_STRUCT 1
-# define FREE_TABLE 2
-# define FREE_USED 4
-# define FREE_SET_ALL 7
-
-typedef enum e_set_result
+t_list	*ft_lstnew(int value)
 {
-	SUCCESS,
-	ALREADY_IN
-}	t_set_result;
+	t_list	*new;
 
-typedef struct s_set
-{
-	int			*table;
-	bool		*used;
-	uint32_t	size;
-	uint32_t	mask;
-}	t_set;
-
-#endif
+	new = ft_calloc(1, sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->value = value;
+	return (new);
+}

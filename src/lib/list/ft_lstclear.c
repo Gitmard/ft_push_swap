@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_defines.h                                    :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 11:04:19 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/16 11:04:33 by smenard          ###   ########.fr       */
+/*   Created: 2025/12/16 14:27:19 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/17 12:54:54 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_DEFINES_H
-# define PARSE_DEFINES_H
+#include "list.h"
 
-#endif
+void	*ft_lstclear(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	ft_lstclear(lst->next);
+	free(lst);
+	return (NULL);
+}

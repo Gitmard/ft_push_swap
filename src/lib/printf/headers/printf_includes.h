@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   printf_includes.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/18 19:25:16 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/27 14:02:52 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/18 19:19:18 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#ifndef PRINTF_INCLUDES_H
+# define PRINTF_INCLUDES_H
 
-# include "list.h"
-# include "hash_set.h"
-# include "mem.h"
-# include "string.h"
-# include "stack.h"
-# include "ft_printf.h"
+# include <limits.h>
+# include <stdarg.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include "lib.h"
 
 #endif

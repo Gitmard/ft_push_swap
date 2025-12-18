@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstremove.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 13:39:58 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/16 15:48:17 by smenard          ###   ########.fr       */
+/*   Created: 2025/12/16 13:26:58 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/16 15:16:50 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
-t_list	*ft_lstnew(int value, size_t *size)
+t_list	*ft_lstremove_head(t_list *lst)
 {
-	t_list	*new;
+	t_list	*next;
 
-	new = ft_calloc(1, sizeof(t_list));
-	if (!new)
+	if (!lst)
 		return (NULL);
-	new->value = value;
-	if (size)
-		new->size = size;
-	else
-		new->size = ft_calloc(1, sizeof(size_t));
-	if (!new->size)
-		return (ft_lstclear(new));
-	return (new);
+	while (lst->prev)
+		lst = lst->prev;
+	next = lst->next;
+	next->prev = NULL;
+	if (*lst->size > 0)
+		(*lst->size) = 1;
+	return (next);
+}
+
+t_list	*ft_lstremove_tail(t_list *lst)
+{
+	t_list	*prev;
+
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	prev = lst->prev;
+	prev->next = NULL;
+	if (*lst->size > 0)
+		(*lst->size) = 1;
+	return (prev);
 }

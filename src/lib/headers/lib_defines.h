@@ -20,13 +20,14 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 	int				value;
+	size_t			*size;
 }					t_list;
 
 typedef struct s_stack
 {
 	t_list			*head;
 	t_list			*tail;
-	size_t			size;
+	size_t			*size;
 }					t_stack;
 
 typedef struct s_stacks

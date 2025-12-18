@@ -6,13 +6,13 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:32:31 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/18 19:40:45 by smenard          ###   ########.fr       */
+/*   Updated: 2025/12/18 19:42:13 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "instructions.h"
 
-static void	push(t_stack* from, t_stack *to)
+static void	push(t_stack *from, t_stack *to)
 {
 	if (from->size == 0)
 	{

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   instructions_defines.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/16 16:24:45 by smenard          ###   ########.fr       */
+/*   Created: 2025/12/17 15:18:31 by vquetier          #+#    #+#             */
+/*   Updated: 2025/12/17 15:42:25 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#ifndef INSTRUCTIONS_DEFINES_H
+# define INSTRUCTIONS_DEFINES_H
 
-# include "list/list.h"
-# include "mem/mem.h"
+# include "instructions_includes.h"
 
 #endif

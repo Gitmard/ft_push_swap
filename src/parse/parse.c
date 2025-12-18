@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:39:30 by vquetier          #+#    #+#             */
-/*   Updated: 2025/12/17 14:50:11 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 14:42:27 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	stack_add(t_stack *stack, int value)
 {
 	t_list	*new;
 
-	new = ft_lstnew(value);
+	new = ft_lstnew(value, NULL);
 	if (!new)
 		return (ERROR);
 	if (!stack->head || !stack->tail)

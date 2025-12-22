@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   math.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 17:32:15 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:47:57 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/09 14:34:07 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/09 14:37:40 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef MATH_H
+# define MATH_H
 
-# include "parse.h"
-# include "instructions.h"
-# include "lib.h"
-# include "instructions.h"
-# include "medium.h"
-# include "bench.h"
-# include "simple.h"
+/* math.c */
+int	ft_max(int n1, int n2);
+int	ft_min(int n1, int n2);
+int	ft_abs(int n);
+int	ft_sqrt(int n);
 
 #endif

@@ -6,10 +6,11 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:32:31 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/09 16:48:39 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/27 11:45:27 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "instructions.h"
 
 static void	push(t_stack *from, t_stack *to)

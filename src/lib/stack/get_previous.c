@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   get_previous.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 17:32:15 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:47:57 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/09 13:34:09 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/13 11:02:14 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "stack_includes.h"
 
-# include "parse.h"
-# include "instructions.h"
-# include "lib.h"
-# include "instructions.h"
-# include "medium.h"
-# include "bench.h"
-# include "simple.h"
-
-#endif
+t_list	*get_previous_node(t_list *current, t_list *tail)
+{
+	if (!current)
+		return (NULL);
+	if (!current->prev)
+		return (tail);
+	return (current->prev);
+}

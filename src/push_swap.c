@@ -6,31 +6,12 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 17:14:38 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/27 11:47:40 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
-
-/*
-static void	print_stack(t_stack *stack)
-{
-	t_list	*curr;
-
-	ft_printf("{head: %p, tail: %p, size: %zu}\n",
-		stack->head,
-		stack->tail,
-		stack->size);
-	curr = stack->head;
-	while (curr)
-	{
-		ft_printf("%p: {next: %p, prev: %p, val: %d}\n", curr, curr->next,
-			curr->prev, curr->value);
-		curr = curr->next;
-	}
-}
-*/
 
 int	raise_error(void)
 {

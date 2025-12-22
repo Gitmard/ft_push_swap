@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 13:51:49 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/18 19:18:53 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/12 10:28:56 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ ssize_t		ft_print_arg(t_arg arg);
 size_t		ft_strlen(t_string str);
 
 size_t		ft_strlen_until(t_string str, char stop);
-
-uint64_t	ft_abs(int64_t num);
 
 char		*ft_strchr(t_string str, char c);
 

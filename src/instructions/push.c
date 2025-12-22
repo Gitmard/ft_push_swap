@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:32:31 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/22 19:25:20 by smenard          ###   ########.fr       */
+/*   Updated: 2025/12/22 19:39:40 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	push_a(t_stacks *stacks)
 	push(stacks->stack_b, stacks->stack_a);
 }
 
-void	push_b(t_stacks *stacks)
+void	pb(t_stacks *stacks)
 {
 	push(stacks->stack_a, stacks->stack_b);
 }

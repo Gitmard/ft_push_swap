@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2025/12/18 20:13:45 by smenard          ###   ########.fr       */
+/*   Updated: 2025/12/22 19:39:40 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	print_stack(args->stacks->stack_a);
-	swap_a(args->stacks);
+	sa(args->stacks);
 	ft_printf("AFTER sa :\n");
 	print_stack(args->stacks->stack_a);
-	push_b(args->stacks);
-	push_b(args->stacks);
+	pb(args->stacks);
+	pb(args->stacks);
 	ft_printf("AFTER 2 pb, stack_a :\n");
 	print_stack(args->stacks->stack_a);
 	ft_printf("stack_b :\n");

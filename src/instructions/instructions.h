@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -16,22 +17,22 @@
 # include "instructions_includes.h"
 
 /* swap */
-void	swap_a(t_stacks *stacks);
-void	swap_b(t_stacks *stacks);
-void	swap_all(t_stacks *stacks);
+void	sa(t_stacks *stacks);
+void	sb(t_stacks *stacks);
+void	ss(t_stacks *stacks);
 
 /* push */
-void	push_a(t_stacks *stacks);
-void	push_b(t_stacks *stacks);
+void	pa(t_stacks *stacks);
+void	pb(t_stacks *stacks);
 
 /* rotate */
-void	rotate_a(t_stacks *stacks);
-void	rotate_b(t_stacks *stacks);
-void	rotate_all(t_stacks *stacks);
+void	ra(t_stacks *stacks);
+void	rb(t_stacks *stacks);
+void	rr(t_stacks *stacks);
 
 /* reverse rotate */
-void	reverse_rotate_a(t_stacks *stacks);
-void	reverse_rotate_b(t_stacks *stacks);
-void	reverse_rotate_all(t_stacks *stacks);
+void	rra(t_stacks *stacks);
+void	rrb(t_stacks *stacks);
+void	rrr(t_stacks *stacks);
 
 #endif

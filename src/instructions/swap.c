@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:15:23 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/18 19:24:56 by smenard          ###   ########.fr       */
+/*   Updated: 2025/12/22 19:39:32 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ static bool	swap(t_stack *stack)
 	return (true);
 }
 
-void	swap_a(t_stacks *stacks)
+void	sa(t_stacks *stacks)
 {
 	swap(stacks->stack_a);
 }
 
-void	swap_b(t_stacks *stacks)
+void	sb(t_stacks *stacks)
 {
 	swap(stacks->stack_b);
 }
 
-void	swap_all(t_stacks *stacks)
+void	ss(t_stacks *stacks)
 {
 	swap(stacks->stack_a);
 	swap(stacks->stack_b);

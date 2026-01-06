@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:51:45 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/06 16:06:13 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 18:30:45 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	fill_buckets(t_stacks *stacks, int *sorted, int w_size, int *steps)
 		}
 		update_poped(w_start, stacks->stack_a->head->value, poped, sorted);
 		pb(stacks);
-		if (stacks->stack_b->head->value <= sorted[w_start + w_size / 2])
+		if (stacks->stack_b->head->value <= sorted[w_start + w_size / 2] && stacks->stack_b->size > 1)
 			rb(stacks);
 		update_window(&w_start, w_size, poped, size);
 		(*steps)++;
@@ -94,6 +94,8 @@ void	(*locate_top(t_stacks *stacks, int target))(t_stacks *stacks)
 			return (&rb);
 		else if (backward->value == target)
 			return (&rrb);
+		forward = forward->next;
+		backward = backward->prev;
 	}
 	return (&ra);
 }
@@ -107,7 +109,7 @@ void	insert_in_a(t_stacks *stacks, int *sorted, int size, int *steps)
 	while (top_index >= 0)
 	{
 		f = locate_top(stacks, sorted[top_index]);
-		while (stacks->stack_a->head->value != sorted[top_index])
+		while (stacks->stack_b->head->value != sorted[top_index])
 		{
 			(*steps)++;
 			f(stacks);

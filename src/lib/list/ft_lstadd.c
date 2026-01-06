@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:27:15 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/18 20:13:53 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/06 17:50:16 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_list	*ft_lstadd_head(t_list *lst, t_list *new)
 		lst = lst->prev;
 	lst->prev = new;
 	new->next = lst;
+	new->prev = NULL;
 	return (new);
 }
 
@@ -60,5 +61,6 @@ t_list	*ft_lstadd_tail(t_list *lst, t_list *new)
 		lst = lst->next;
 	lst->next = new;
 	new->prev = lst;
+	new->next = NULL;
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/06 16:12:50 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 18:22:19 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	print_stack(t_stack *stack)
 	curr = stack->head;
 	while (curr)
 	{
-		ft_printf("%p: {next: %p, prec: %p, val: %d}\n", curr, curr->next,
+		ft_printf("%p: {next: %p, prev: %p, val: %d}\n", curr, curr->next,
 			curr->prev, curr->value);
 		curr = curr->next;
 	}
@@ -32,7 +32,8 @@ static void	print_stack(t_stack *stack)
 
 int	main(int ac, char **av)
 {
-	t_stacks	*stacks;
+	t_args	*args;
+	int	steps;
 
 	stacks = parse(ac, av);
 	if (!stacks || !stacks->a->head)
@@ -41,6 +42,8 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	print_stack(args->stacks->stack_a);
-	medium(args->stacks);
+	steps = medium(args->stacks);
+	print_stack(args->stacks->stack_a);
+	ft_printf("%d\n", steps);
 	free_args(args, FREE_ARGS_ALL);
 }

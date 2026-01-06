@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:25 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/06 11:40:44 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 16:05:44 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_sqrt(int x)
 	int	max;
 	int	mid;
 
-	mid = 0;
+	min = 0;
 	max = x + 1 / 2;
 	while (max >= min)
 	{

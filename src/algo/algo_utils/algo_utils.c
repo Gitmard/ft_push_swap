@@ -6,11 +6,11 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:42 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/06 14:22:16 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/06 14:59:37 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo_utils_defines.h"
+#include "algo_utils_includes.h"
 
 void	bubble_sort(int *tab, int size)
 {
@@ -52,4 +52,5 @@ int	*create_sorted_array(t_stacks *stacks)
 		iter = iter->next;
 	}
 	bubble_sort(tab, stacks->stack_a->size);
+	return (tab);
 }

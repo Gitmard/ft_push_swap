@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:12:50 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/06 11:20:40 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 15:56:55 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define MEDIUM_DEFINES_H
 
 # include "medium_includes.h"
+
+int	ft_sqrt(int x);
 
 #endif

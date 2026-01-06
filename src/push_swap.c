@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2025/12/22 19:39:40 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/06 16:12:50 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,7 @@ int	main(int ac, char **av)
 		ft_printf("ERROR EH OUI\n");
 		return (1);
 	}
-	print_stack(stacks->a);
-	sa(stacks);
-	ft_printf("AFTER sa :\n");
-	print_stack(stacks->a);
-	pb(stacks);
-	pb(stacks);
-	ft_printf("AFTER 2 pb, stack_a :\n");
-	print_stack(stacks->a);
-	ft_printf("stack_b :\n");
-	print_stack(stacks->b);
-	free_stacks(stacks, FREE_STACKS_ALL);
+	print_stack(args->stacks->stack_a);
+	medium(args->stacks);
+	free_args(args, FREE_ARGS_ALL);
 }

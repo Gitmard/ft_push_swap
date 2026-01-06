@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/18 19:25:16 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/26 15:04:48 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/18 19:20:18 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include "list.h"
-# include "hash_set.h"
-# include "mem.h"
-# include "string.h"
-# include "stack.h"
-# include "ft_printf.h"
+# include "printf_defines.h"
+# include "printf_includes.h"
+
+int	ft_printf(char *str, ...);
 
 #endif

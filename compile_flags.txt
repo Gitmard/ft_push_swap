@@ -2,8 +2,8 @@
 -Wextra
 -Werror
 -I./src
--I./src/algo
--I./src/algo/headers
+-I./src/algo/algo_utils
+-I./src/algo/algo_utils/headers
 -I./src/instructions
 -I./src/instructions/headers
 -I./src/lib

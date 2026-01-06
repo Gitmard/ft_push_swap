@@ -258,7 +258,73 @@ fclean: clean
 
 re: fclean all
 
-# ---------- IMPLICIT ----------
+# ########## TESTS ##########
+
+========== DIRECTORIES ==========
+
+# ---------- MAIN ----------
+
+TESTS_DIR = test
+
+# ---------- INSTRUCTIONS ----------
+
+TESTS_INSTRUCTIONS_DIR = instructions
+
+# ========== HEADERS =========
+
+# ---------- INSTRUCTIONS ----------
+
+INCLUDES_TESTS_INSTRUCTIONS =	-I$(TESTS_DIR)/headers \
+
+# ========== FILES ==========
+
+# ---------- MAIN ----------
+
+TESTS_MAIN_FILES =					$(TESTS_DIR)/tests.c \
+
+# ---------- INSTRUCTIONS ----------
+
+TESTS_INSTRUCTIONS_FILES =		$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_reverse_rotate.c \
+								$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_rotate.c \
+								$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_swap.c \
+								$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_instructions.c \
+								$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_push.c
+
+# ---------- ALL ----------
+
+TESTS_FILES =			$(TESTS_MAIN_FILES) $(TESTS_INSTRUCTIONS_FILES)
+
+# ========== OBJ ==========
+
+# ---------- MAIN ----------
+
+TESTS_MAIN_OBJ =			$(TESTS_MAIN_FILES:.c=.o)
+
+# ---------- INSTRUCTIONS ----------
+
+TESTS_INSTRUCTIONS_OBJ =	$(TESTS_INSTRUCTIONS_FILES:.c=.o)
+
+# ---------- ALL ----------
+
+ALL_OBJ =					$(TESTS_MAIN_OBJ) $(TESTS_INSTRUCTIONS_OBJ)
+
+# ========== NAMES ==========
+
+NAME_TESTS = push_swap_tests
+
+NAME_INSTRUCTIONS = tests_instructions.a
+
+# ========== RULES ==========
+
+# ---------- MAIN ----------
+
+tests: $(NAME_TESTS)
+
+# ---------- INSTRUCTIONS ----------
+
+tests_instructions: $(NAME_INSTRUCTIONS)
+
+# ########## IMPLICIT RUlES ##########
 
 %.o: %.c
 	$(CC) $(CFLAGS) -MMD -c $< -o $@ $(INCLUDES)

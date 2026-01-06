@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   tests_instructions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 17:32:18 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/16 10:24:57 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/06 16:18:19 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/06 16:19:05 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-#DEFINE TESTS_H
-
-#endif
+int	main(int ac, char **av)
+{
+	return (EXIT_SUCCESS);
+}

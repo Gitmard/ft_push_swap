@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:32:31 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/22 19:39:40 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/06 16:23:12 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	push(t_stack *from, t_stack *to)
 	ft_stackadd_head(to, ft_stackremove_head(from));
 }
 
-void	push_a(t_stacks *stacks)
+void	pa(t_stacks *stacks)
 {
 	push(stacks->b, stacks->a);
 }

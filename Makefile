@@ -30,6 +30,12 @@ LIB_STRING_DIR = string
 
 PARSE_DIR = parse
 
+# ---------- ALGO ----------
+
+ALGO_DIR = algo
+
+AGLO_UTILS_DIR = algo_utils
+
 # ---------- HEADERS ----------
 
 HEADERS_DIR = headers
@@ -73,6 +79,10 @@ INCLUDES_LIB =			$(INCLUDES_LIB_MAIN) \
 # ---------- PARSE ----------
 
 INCLUDES_PARSE = 		-I./$(SRC_DIR)/$(PARSE_DIR) -I./$(SRC_DIR)/$(PARSE_DIR)/$(HEADERS_DIR)
+
+# ---------- ALGO ----------
+
+INCLUDES_ALGO_UTILS = 		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/$(HEADERS_DIR)
 
 # ---------- MAIN ----------
 
@@ -128,6 +138,10 @@ LIB_FILES =				$(LIB_HASH_SET_FILES) \
 PARSE_FILES =			./$(SRC_DIR)/$(PARSE_DIR)/parse.c \
 						./$(SRC_DIR)/$(PARSE_DIR)/parse_utils.c
 
+# ---------- ALGO ----------
+
+ALGO_UTILS_FILES =		./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/algo_utils.c
+
 # ---------- ALL ----------
 
 ALL_FILES = 			$(MAIN_FILES) \
@@ -152,9 +166,13 @@ LIB_OBJ = $(LIB_FILES:.c=.o)
 
 PARSE_OBJ = $(PARSE_FILES:.c=.o)
 
+# ---------- ALGO ----------
+
+ALGO_OBJ = $(ALGO_FILES:.c=.o)
+
 # ---------- ALL ----------
 
-ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ)
+ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ)
 
 # ========== DFILES ==========
 
@@ -171,6 +189,8 @@ NAME_INSTRUCTIONS = instructions.a
 NAME_LIB = lib.a
 
 NAME_PARSE = parse.a
+
+NAME_ALGO = algo.a
 
 # ========== RULES ==========
 
@@ -207,10 +227,17 @@ parse: $(NAME_PARSE)
 $(NAME_PARSE): $(PARSE_OBJ)
 	ar rcs $@ $^
 
+# ---------- ALGO ----------
+
+algo: $(NAME_ALGO)
+
+$(NAME_ALGO): $(ALGO_OBJ)
+	ar rcs $@ $^
+
 # ---------- CLEAN ----------
 
 clean:
-	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB)
+	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO)
 
 fclean: clean
 	rm -rf $(NAME_MAIN) $(NAME_MAIN_DEBUG)

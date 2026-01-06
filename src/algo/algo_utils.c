@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:16:42 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/06 14:00:20 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 14:22:16 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	bubble_sort(int *tab, int size)
 int	*create_sorted_array(t_stacks *stacks)
 {
 	t_list	*iter;
-	int	*tab;
-	int	i;
+	int		*tab;
+	int		i;
 
 	iter = stacks->stack_a->head;
 	tab = malloc(sizeof(int) * stacks->stack_a->size);

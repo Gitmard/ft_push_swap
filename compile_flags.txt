@@ -1,0 +1,12 @@
+-Wall
+-Wextra
+-Werror
+-I.
+-I./headers
+-I./src/benchmark
+-I./src/debug
+-I./src/hash_set
+-I./src/hash_set/headers
+-I./src/lib
+-I./src/parse
+-I./tests

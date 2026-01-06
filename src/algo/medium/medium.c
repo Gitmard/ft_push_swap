@@ -1,70 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   medium.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/06 10:51:45 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/06 13:48:48 by vquetier         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	bubble_sort(int *tab, int size)
-{
-	int	i;
-	int	tmp;
+#include "medium_defines.h"
 
-	while (size > 1)
-	{
-		i = 0;
-		while (i < size - 1)
-		{
-			if (tab[i] > tab[i + 1])
-			{
-				tmp = tab[i];
-				tab[i] = tab[i + 1];
-				tab[i + 1] = tmp;
-			}
-			i++;
-		}
-		size--;
-	}
-}
-
-int	ft_sqrt(int x)
-{
-	int	min;
-	int	max;
-	int	mid;
-
-	mid = 0;
-	max = x + 1 / 2;
-	while (max >= min)
-	{
-		mid = min + (max - min) / 2;
-		if (mid * mid > x)
-			max = mid - 1;
-		else if (mid * mid < x)
-			min = mid + 1;
-		else
-			return (mid);
-	}
-	if (x - (max * max) > (min * min) - x)
-		return (min);
-	return max;
-}
-
-int	*create_sorted_array(t_stacks *stacks)
-{
-	t_list	*iter;
-	int	*tab;
-	int	i;
-
-	iter = stacks->stack_a->head;
-	tab = malloc(sizeof(int) * stacks->stack_a->size);
-	if (!tab)
-		return (NULL);
-	i = 0;
-	while (iter)
-	{
-		tab[i] = iter->value;
-		i++;
-		iter = iter->next;
-	}
-	bubble_sort(tab, stacks->stack_a->size);
-}
-
-void	locate_closest(t_stacks *stacks, int window_start, int window_size, int *sorted)
+void	(*locate_closest(t_stacks *))(t_stacks *stacks,
+		int w_start, int w_size, int *sorted)
 {
 	t_list	*forward;
 	t_list	*backward;
@@ -73,11 +22,11 @@ void	locate_closest(t_stacks *stacks, int window_start, int window_size, int *so
 	backward = stacks->stack_a->tail;
 	while (forward && backward)
 	{
-		if (forward->value >= sorted[window_start]
-				&& forward->value <= sorted[window_start + window_size])
+		if (forward->value >= sorted[w_start]
+			&& forward->value <= sorted[w_start + w_size])
 			return (&ra);
-		if (backward->value >= sorted[window_start
-				&& backward->value <= sorted[window_start + window_size]])
+		if (backward->value >= sorted[w_start
+				&& backward->value <= sorted[w_start + w_size]])
 			return (&rra);
 		forward = forward->next;
 		backward = backward->prev;
@@ -85,28 +34,28 @@ void	locate_closest(t_stacks *stacks, int window_start, int window_size, int *so
 	return (&ra);
 }
 
-void	update_poped(int window_start, int value, bool *poped, int *sorted)
+void	update_poped(int w_start, int value, bool *poped, int *sorted)
 {
 	int	i;
 
-	i = window_start;
+	i = w_start;
 	while (sorted[i] != value)
 		i++;
 	poped[i] = true;
 }
 
-void	update_window(int *window_start, int window_size, bool *poped, int size)
+void	update_window(int *w_start, int w_size, bool *poped, int size)
 {
-	while ((*window_start) + window_size + 1 < size && poped[(*window_start)])
-		(*window_start++);
+	while ((*w_start) + w_size + 1 < size && poped[(*w_start)])
+		(*w_start++);
 }
 
-int	fill_buckets(t_stacks *stacks, int *sorted, int window_size, int *steps)
+int	fill_buckets(t_stacks *stacks, int *sorted, int w_size, int *steps)
 {
-	int	window_start;
-	int	size;
+	int		w_start;
+	int		size;
 	bool	*poped;
-	void	*f(t_stacks *);
+	void	(*f)(t_stacks *);
 
 	poped = ft_calloc(stacks->stack_a->size, sizeof(bool));
 	if (!poped)
@@ -114,37 +63,75 @@ int	fill_buckets(t_stacks *stacks, int *sorted, int window_size, int *steps)
 	while (stacks->stack_a->size > 0)
 	{
 		f = locate_closest(stacks);
-		while (!(stacks->stack_a->head->value >= sorted[window_start]
-				&& stacks->stack_a->head->value <= sorted[window_start + window_size]))
+		while (!(stacks->stack_a->head->value >= sorted[w_start]
+				&& stacks->stack_a->head->value <= sorted[w_start + w_size]))
 		{
 			f(stacks);
 			(*steps)++;
 		}
-		update_poped(window_start, stacks->stack_a->head->value, poped, size);
+		update_poped(w_start, stacks->stack_a->head->value, poped, size);
 		pb(stacks);
-		if (stacks->stack_b->head->value <= sorted[window_start + window_size / 2])
+		if (stacks->stack_b->head->value <= sorted[w_start + w_size / 2])
 			rb(stacks);
-		update_window(*window_start, window_size, poped, size);
+		update_window(*w_start, w_size, poped, size);
 		(*steps)++;
+	}
+}
+
+void	(*locate_top(t_stacks *))(t_stacks *stacks, int target)
+{
+	t_list	*forward;
+	t_list	*backward;
+
+	if (!stacks->stack_b->head->value == sorted[top_index])
+		return (&ra);
+	forward = stacks->stack_b->head->next;
+	backward = stacks->stack_b->tail;
+	while (forward && backward)
+	{
+		if (forward->value == sorted[top_index])
+			return (&rb);
+		else if (backward->value == sorted[top_index])
+			return (&rrb);
+	}
+}
+
+void	insert_in_a(t_stacks *stacks, int *sorted, int size, int *steps)
+{
+	int		top_index;
+	void	(*f)(t_stacks *);
+
+	top_index = size - 1;
+	while (top_index >= 0)
+	{
+		f = loacate_top(stacks, sorted[top_index]);
+		while (stacks->stack_a->head->value != sorted[top_index])
+		{
+			(*steps)++;
+			f(stacks);
+		}
+		pa(stacks);
+		(*steps)++;
+		top_index--;
 	}
 }
 
 int	medium(t_stacks *stacks)
 {
 	int	*sorted;
-	int	window_size;
+	int	w_size;
 	int	steps;
 
 	sorted = create_sorted_array(stacks);
 	if (!sorted)
 		return (-1);
-	window_size = sqrt(stacks->stack_a->size);
+	w_size = sqrt(stacks->stack_a->size);
 	steps = 0;
-	if (fill_buckets(stacks, sorted, window_size, &steps))
+	if (fill_buckets(stacks, sorted, w_size, &steps))
 	{
 		free(sorted);
 		return (-1);
 	}
-	insert_in_a(stacks, sorted, size, &steps);
+	insert_in_a(stacks, sorted, stacks->strack_b->size, &steps);
 	return (steps);
 }

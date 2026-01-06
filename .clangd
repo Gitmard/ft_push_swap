@@ -1,0 +1,7 @@
+CompileFlags:
+  Add:
+    - -I./include
+    - -I./libft/include
+
+Diagnostics:
+  UnusedIncludes: None

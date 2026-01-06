@@ -1,0 +1,11 @@
+#!/bin/bash
+# generate_flags.sh
+
+echo "-Wall" > compile_flags.txt
+echo "-Wextra" >> compile_flags.txt
+echo "-Werror" >> compile_flags.txt
+
+# Trouve tous les dossiers contenant des .h et ajoute -I
+find . -name "*.h" -printf '%h\n' | sort -u | while read dir; do
+    echo "-I$dir" >> compile_flags.txt
+done

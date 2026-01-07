@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:43:14 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/22 19:39:51 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/07 16:36:31 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,22 @@ static void	rotate(t_stack *stack)
 
 void	ra(t_stacks *stacks)
 {
+	if (!(stacks->flags & NO_PRINT))
+		ft_printf("ra\n");
 	rotate(stacks->a);
 }
 
 void	rb(t_stacks *stacks)
 {
+	if (!(stacks->flags & NO_PRINT))
+		ft_printf("rb\n");
 	rotate(stacks->b);
 }
 
 void	rr(t_stacks *stacks)
 {
+	if (!(stacks->flags & NO_PRINT))
+		ft_printf("rr\n");
 	rotate(stacks->a);
 	rotate(stacks->b);
 }

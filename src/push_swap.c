@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 14:53:16 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:26:22 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(int ac, char **av)
 		ft_printf("Error\n");
 		return (1);
 	}
+	ft_printf("%d\n\n", stacks->flags);
 	print_stack(stacks->a);
 	steps = medium(stacks);
 	print_stack(stacks->a);

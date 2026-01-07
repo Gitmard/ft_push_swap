@@ -86,7 +86,7 @@ t_stacks	*parse(int ac, char **av)
 		if (parse_current(av[i], stacks, set) == ERROR)
 		{
 			free_set(set, FREE_SET_ALL);
-			free_args(stacks, FREE_STACKS_ALL);
+			free_stacks(stacks, FREE_STACKS_ALL);
 			return (NULL);
 		}
 		i++;
@@ -94,7 +94,7 @@ t_stacks	*parse(int ac, char **av)
 	if (check_flags(stacks) == INVALID)
 	{
 		free_set(set, FREE_SET_ALL);
-		free_args(stacks, FREE_STACKS_ALL);
+		free_stacks(stacks, FREE_STACKS_ALL);
 		return (NULL);
 	}
 	free_set(set, FREE_SET_ALL);

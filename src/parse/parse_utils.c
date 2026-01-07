@@ -80,7 +80,7 @@ t_stacks	*create_stacks(void)
 		return (free_stacks(stacks, FREE_STACKS));
 	stacks->b = malloc(sizeof(t_stack));
 	if (!stacks->b)
-		return (free_args(stacks, FREE_STACKS | FREE_A));
+		return (free_stacks(stacks, FREE_STACKS | FREE_A));
 	stacks->b->head = NULL;
 	stacks->b->tail = NULL;
 	stacks->b->size = 0;

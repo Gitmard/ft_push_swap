@@ -34,7 +34,7 @@ typedef struct s_stacks
 	t_stack			*a;
 	t_stack			*b;
 	size_t			combined_sizes;
-	uint32_t		flags
+	int				flags;
 }					t_stacks;
 
 #endif

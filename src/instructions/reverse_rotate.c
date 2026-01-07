@@ -24,16 +24,16 @@ static void	reverse_rotate(t_stack *stack)
 
 void	rra(t_stacks *stacks)
 {
-	reverse_rotate(stacks->stack_a);
+	reverse_rotate(stacks->a);
 }
 
 void	rrb(t_stacks *stacks)
 {
-	reverse_rotate(stacks->stack_b);
+	reverse_rotate(stacks->b);
 }
 
 void	rrr(t_stacks *stacks)
 {
-	reverse_rotate(stacks->stack_a);
-	reverse_rotate(stacks->stack_b);
+	reverse_rotate(stacks->a);
+	reverse_rotate(stacks->b);
 }

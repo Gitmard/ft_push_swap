@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/06 18:22:19 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 14:53:16 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ static void	print_stack(t_stack *stack)
 
 int	main(int ac, char **av)
 {
-	t_args	*args;
-	int	steps;
+	t_stacks	*stacks;
+	int			steps;
 
 	stacks = parse(ac, av);
 	if (!stacks || !stacks->a->head)
 	{
-		ft_printf("ERROR EH OUI\n");
+		ft_printf("Error\n");
 		return (1);
 	}
-	print_stack(args->stacks->stack_a);
-	steps = medium(args->stacks);
-	print_stack(args->stacks->stack_a);
+	print_stack(stacks->a);
+	steps = medium(stacks);
+	print_stack(stacks->a);
 	ft_printf("%d\n", steps);
-	free_args(args, FREE_ARGS_ALL);
+	free_stacks(stacks, FREE_STACKS_ALL);
 }

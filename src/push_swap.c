@@ -32,23 +32,23 @@ static void	print_stack(t_stack *stack)
 
 int	main(int ac, char **av)
 {
-	t_args	*args;
+	t_stacks	*stacks;
 
-	args = parse(ac, av);
-	if (!args || !args->stacks->stack_a->head)
+	stacks = parse(ac, av);
+	if (!stacks || !stacks->a->head)
 	{
 		ft_printf("ERROR EH OUI\n");
 		return (1);
 	}
-	print_stack(args->stacks->stack_a);
-	sa(args->stacks);
+	print_stack(stacks->a);
+	sa(stacks);
 	ft_printf("AFTER sa :\n");
-	print_stack(args->stacks->stack_a);
-	pb(args->stacks);
-	pb(args->stacks);
+	print_stack(stacks->a);
+	pb(stacks);
+	pb(stacks);
 	ft_printf("AFTER 2 pb, stack_a :\n");
-	print_stack(args->stacks->stack_a);
+	print_stack(stacks->a);
 	ft_printf("stack_b :\n");
-	print_stack(args->stacks->stack_b);
-	free_args(args, FREE_ARGS_ALL);
+	print_stack(stacks->b);
+	free_stacks(stacks, FREE_STACKS_ALL);
 }

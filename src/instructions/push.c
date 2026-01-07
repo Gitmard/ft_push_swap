@@ -24,10 +24,10 @@ static void	push(t_stack *from, t_stack *to)
 
 void	push_a(t_stacks *stacks)
 {
-	push(stacks->stack_b, stacks->stack_a);
+	push(stacks->b, stacks->a);
 }
 
 void	pb(t_stacks *stacks)
 {
-	push(stacks->stack_a, stacks->stack_b);
+	push(stacks->a, stacks->b);
 }

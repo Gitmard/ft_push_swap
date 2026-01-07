@@ -24,16 +24,16 @@ static void	rotate(t_stack *stack)
 
 void	ra(t_stacks *stacks)
 {
-	rotate(stacks->stack_a);
+	rotate(stacks->a);
 }
 
 void	rb(t_stacks *stacks)
 {
-	rotate(stacks->stack_b);
+	rotate(stacks->b);
 }
 
 void	rr(t_stacks *stacks)
 {
-	rotate(stacks->stack_a);
-	rotate(stacks->stack_b);
+	rotate(stacks->a);
+	rotate(stacks->b);
 }

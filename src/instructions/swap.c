@@ -31,16 +31,16 @@ static bool	swap(t_stack *stack)
 
 void	sa(t_stacks *stacks)
 {
-	swap(stacks->stack_a);
+	swap(stacks->a);
 }
 
 void	sb(t_stacks *stacks)
 {
-	swap(stacks->stack_b);
+	swap(stacks->b);
 }
 
 void	ss(t_stacks *stacks)
 {
-	swap(stacks->stack_a);
-	swap(stacks->stack_b);
+	swap(stacks->a);
+	swap(stacks->b);
 }

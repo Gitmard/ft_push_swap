@@ -6,22 +6,38 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 14:23:52 by vquetier          #+#    #+#             */
-/*   Updated: 2025/12/18 16:09:38 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/07 11:31:19 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_defines.h"
 
-int	add_in_struct(int value, t_args *args, t_set *set)
+void	*free_stacks(t_stacks *stacks, uint32_t flag)
+{
+	if (flag & FREE_LISTS)
+	{
+		ft_lstclear(stacks->a->head);
+		ft_lstclear(stacks->b->head);
+	}
+	if (flag & FREE_B)
+		free(stacks->b);
+	if (flag & FREE_A)
+		free(stacks->a);
+	if (flag & FREE_STACKS)
+		free(stacks);
+	return (NULL);
+}
+
+int	add_in_struct(int value, t_stacks *stacks, t_set *set)
 {
 	if (add_in_set(set, value) == ALREADY_IN)
 		return (ERROR);
-	if (stack_add(args->stacks->stack_a, value) == ERROR)
+	if (stack_add(stacks->a, value) == ERROR)
 		return (ERROR);
 	return (SUCCESS);
 }
 
-int	atoi_check(char *arg, t_args *args, t_set *set)
+int	atoi_check(char *arg, t_stacks *stacks, t_set *set)
 {
 	long	ret;
 	int		sign;
@@ -47,59 +63,45 @@ int	atoi_check(char *arg, t_args *args, t_set *set)
 			return (ERROR);
 		i++;
 	}
-	return (add_in_struct((int)(ret * sign), args, set));
+	return (add_in_struct((int)(ret * sign), stacks, set));
 }
 
-t_args	*create_args(void)
+t_stacks	*create_stacks(void)
 {
-	t_args	*args;
+	t_stacks	*stacks;
 
-	args = ft_calloc(1, sizeof(t_args));
-	if (!args)
+	stacks = malloc(sizeof(t_stacks));
+	if (!stacks)
 		return (NULL);
-	args->stacks = ft_calloc(1, sizeof(t_stacks));
-	if (!args->stacks)
-		return (free_args(args, FREE_ARGS));
-	args->stacks->combined_sizes = 0;
-	args->stacks->stack_a = ft_stacknew();
-	if (!args->stacks->stack_a)
-		return (free_args(args, FREE_ARGS | FREE_STACKS));
-	args->stacks->stack_b = ft_stacknew();
-	if (!args->stacks->stack_b)
-		return (free_args(args, FREE_ARGS | FREE_STACKS | FREE_A));
-	return (args);
+	stacks->flags = 0;
+	stacks->combined_sizes = 0;
+	stacks->a = malloc(sizeof(t_stack));
+	if (!stacks->a)
+		return (free_stacks(stacks, FREE_STACKS));
+	stacks->b = malloc(sizeof(t_stack));
+	if (!stacks->b)
+		return (free_stacks(stacks, FREE_STACKS | FREE_A));
+	stacks->b->head = NULL;
+	stacks->b->tail = NULL;
+	stacks->b->size = 0;
+	stacks->a->head = NULL;
+	stacks->a->tail = NULL;
+	stacks->a->size = 0;
+	return (stacks);
 }
 
-int	create_ds(int ac, t_args **args, t_set **set)
+int	create_ds(int ac, t_stacks **stacks, t_set **set)
 {
 	if (ac == 1)
 		return (ERROR);
-	*args = create_args();
-	if (!*args)
+	*stacks = create_stacks();
+	if (!*stacks)
 		return (ERROR);
 	*set = create_set(ac - 1);
 	if (!*set)
 	{
-		free_args(*args, FREE_ARGS_ALL);
+		free_stacks(*stacks, FREE_STACKS_ALL);
 		return (ERROR);
 	}
 	return (SUCCESS);
-}
-
-void	*free_args(t_args *args, uint32_t flag)
-{
-	if (flag & FREE_LISTS)
-	{
-		ft_lstclear(args->stacks->stack_a->head);
-		ft_lstclear(args->stacks->stack_b->head);
-	}
-	if (flag & FREE_B)
-		free(args->stacks->stack_b);
-	if (flag & FREE_A)
-		free(args->stacks->stack_a);
-	if (flag & FREE_STACKS)
-		free(args->stacks);
-	if (flag & FREE_ARGS)
-		free(args);
-	return (NULL);
 }

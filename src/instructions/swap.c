@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:15:23 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/22 19:39:32 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/07 16:38:37 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,22 @@ static bool	swap(t_stack *stack)
 
 void	sa(t_stacks *stacks)
 {
+	if (!(stacks->flags & NO_PRINT))
+		ft_printf("sa\n");
 	swap(stacks->a);
 }
 
 void	sb(t_stacks *stacks)
 {
+	if (!(stacks->flags & NO_PRINT))
+		ft_printf("sb\n");
 	swap(stacks->b);
 }
 
 void	ss(t_stacks *stacks)
 {
+	if (!(stacks->flags & NO_PRINT))
+		ft_printf("ss\n");
 	swap(stacks->a);
 	swap(stacks->b);
 }

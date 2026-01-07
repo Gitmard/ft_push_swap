@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:18:22 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/18 16:08:49 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/07 16:34:18 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIB_DEFINES_H
 
 # include "lib_includes.h"
+
+# define NO_PRINT 32
 
 typedef struct s_list
 {

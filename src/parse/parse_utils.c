@@ -68,7 +68,7 @@ int	atoi_check(char *arg, t_stacks *stacks, t_set *set)
 
 t_stacks	*create_stacks(void)
 {
-	t_stacks *stacks;
+	t_stacks	*stacks;
 
 	stacks = malloc(sizeof(t_stacks));
 	if (!stacks)

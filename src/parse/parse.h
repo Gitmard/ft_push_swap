@@ -16,6 +16,6 @@
 # include "parse_defines.h"
 
 t_stacks	*parse(int ac, char **av);
-void	*free_stacks(t_stacks *stacks, uint32_t flag);
+void		*free_stacks(t_stacks *stacks, uint32_t flag);
 
 #endif

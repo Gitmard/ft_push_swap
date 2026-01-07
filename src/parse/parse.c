@@ -6,24 +6,24 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:39:30 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 11:36:54 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 11:20:52 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_defines.h"
 
-int	parse_flags(char *arg, t_args *args)
+int	parse_flags(char *arg, t_stacks *stacks)
 {
 	if (ft_strcmp(arg, "--adaptive") == 0)
-		args->flags |= ADAPTIVE;
+		stacks->flags |= ADAPTIVE;
 	else if (ft_strcmp(arg, "--simple") == 0)
-		args->flags |= SIMPLE;
+		stacks->flags |= SIMPLE;
 	else if (ft_strcmp(arg, "--medium") == 0)
-		args->flags |= MEDIUM;
+		stacks->flags |= MEDIUM;
 	else if (ft_strcmp(arg, "--complex") == 0)
-		args->flags |= COMPLEX;
+		stacks->flags |= COMPLEX;
 	else if (ft_strcmp(arg, "--bench") == 0)
-		args->flags |= BENCH;
+		stacks->flags |= BENCH;
 	else
 		return (ERROR);
 	return (SUCCESS);
@@ -39,16 +39,16 @@ int	stack_add(t_stack *stack, int value)
 	return (SUCCESS);
 }
 
-int	parse_current(char *arg, t_args *args, t_set *set)
+int	parse_current(char *arg, t_stacks *stacks, t_set *set)
 {
 	if (ft_strncmp(arg, "--", 2) == 0)
 	{
-		if (parse_flags(arg, args) == ERROR)
+		if (parse_flags(arg, stacks) == ERROR)
 			return (ERROR);
 	}
 	else
 	{
-		if (atoi_check(arg, args, set) == ERROR)
+		if (atoi_check(arg, stacks, set) == ERROR)
 			return (ERROR);
 	}
 	return (SUCCESS);
@@ -74,16 +74,16 @@ int	check_flags(t_args *args)
 
 t_args	*parse(int ac, char **av)
 {
-	t_args	*args;
-	t_set	*set;
-	int		i;
+	t_stacks	*stacks;
+	t_set		*set;
+	int			i;
 
-	if (create_ds(ac, &args, &set) == ERROR)
+	if (create_ds(ac, &stacks, &set) == ERROR)
 		return (NULL);
 	i = 1;
 	while (i < ac)
 	{
-		if (parse_current(av[i], args, set) == ERROR)
+		if (parse_current(av[i], stacks, set) == ERROR)
 		{
 			free_set(set, FREE_SET_ALL);
 			free_args(args, FREE_ARGS_ALL);

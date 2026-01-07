@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:42:49 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 11:14:14 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 11:32:18 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 
 # include "parse_includes.h"
 
-# define FREE_ARGS 1
-# define FREE_STACKS 2
-# define FREE_A 4
-# define FREE_B 8
-# define FREE_LISTS 16
-# define FREE_ARGS_ALL 31
+# define FREE_STACKS 1
+# define FREE_A 2
+# define FREE_B 4
+# define FREE_LISTS 8
+# define FREE_ARGS_ALL 15
 
 # define ADAPTIVE 1
 # define SIMPLE 2
@@ -33,15 +32,9 @@
 
 # define INVALID 1
 
-typedef struct s_args
-{
-	t_stacks	*stacks;
-	uint32_t	flags;
-}	t_args;
-
-void	*free_args(t_args *args, uint32_t flag);
-int		create_ds(int ac, t_args **args, t_set **set);
-int		atoi_check(char *arg, t_args *args, t_set *set);
+void	*free_stacks(t_stacks *stacks, uint32_t flag);
+int		create_ds(int ac, t_stacks **stacks, t_set **set);
+int		atoi_check(char *arg, t_stacks *stacks, t_set *set);
 int		stack_add(t_stack *stack, int value);
 
 int		ft_strncmp(char *s1, char *s2, size_t n);

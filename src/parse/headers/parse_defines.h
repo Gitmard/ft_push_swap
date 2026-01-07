@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:42:49 by vquetier          #+#    #+#             */
-/*   Updated: 2025/12/17 14:51:07 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 11:14:14 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define COMPLEX 8
 # define BENCH 16
 
-# define SUCCES 0
+# define SUCCESS 0
 # define ERROR 1
 
 # define INVALID 1

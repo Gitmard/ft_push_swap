@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:39:30 by vquetier          #+#    #+#             */
-/*   Updated: 2025/12/18 16:50:20 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/07 11:36:54 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	parse_current(char *arg, t_args *args, t_set *set)
 		if (atoi_check(arg, args, set) == ERROR)
 			return (ERROR);
 	}
-	return (SUCCES);
+	return (SUCCESS);
 }
 
 int	check_flags(t_args *args)
@@ -68,10 +68,7 @@ int	check_flags(t_args *args)
 	if ((args->flags & flags) == COMPLEX)
 		return (SUCCESS);
 	if (args->flags == BENCH || args->flags == 0)
-	{
-		args->flags |= ADAPTIVE;
 		return (SUCCESS);
-	}
 	return (ERROR);
 }
 

@@ -84,7 +84,7 @@ INCLUDES_PARSE = 		-I./$(SRC_DIR)/$(PARSE_DIR) -I./$(SRC_DIR)/$(PARSE_DIR)/$(HEA
 
 # ---------- ALGO ----------
 
-INCLUDES_ALGO_UTILS = 		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/$(HEADERS_DIR)
+INCLUDES_ALGO_UTILS = 	-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/$(HEADERS_DIR)
 
 INCLUDES_ALGO_MEDIUM = 		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/$(HEADERS_DIR)
 
@@ -182,9 +182,6 @@ PARSE_OBJ = $(PARSE_FILES:.c=.o)
 
 ALGO_OBJ = $(ALGO_FILES:.c=.o)
 
-# ---------- ALL ----------
-
-ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ)
 
 # ========== DFILES ==========
 
@@ -246,73 +243,34 @@ algo: $(NAME_ALGO)
 $(NAME_ALGO): $(ALGO_OBJ)
 	ar rcs $@ $^
 
-# ---------- CLEAN ----------
-
-clean:
-	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO)
-
-fclean: clean
-	rm -rf $(NAME_MAIN) $(NAME_MAIN_DEBUG)
-
-# ---------- re ----------
-
-re: fclean all
-
 # ########## TESTS ##########
 
-========== DIRECTORIES ==========
+# ========== DIRECTORIES ==========
 
-# ---------- MAIN ----------
-
-TESTS_DIR = test
-
-# ---------- INSTRUCTIONS ----------
+TESTS_DIR = tests
 
 TESTS_INSTRUCTIONS_DIR = instructions
 
+TESTS_UTILS_DIR = utils
+
 # ========== HEADERS =========
 
-# ---------- INSTRUCTIONS ----------
-
-INCLUDES_TESTS_INSTRUCTIONS =	-I$(TESTS_DIR)/headers \
+TESTS_INCLUDES =	-I$(TESTS_DIR) \
+					-I$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR) \
+					-I$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/headers
 
 # ========== FILES ==========
 
-# ---------- MAIN ----------
-
-TESTS_MAIN_FILES =					$(TESTS_DIR)/tests.c \
-
-# ---------- INSTRUCTIONS ----------
-
-TESTS_INSTRUCTIONS_FILES =		$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_reverse_rotate.c \
-								$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_rotate.c \
-								$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_swap.c \
-								$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_instructions.c \
-								$(TESTS_DIR)/$(INTRUCTIONS_DIR)/ tests_push.c
-
-# ---------- ALL ----------
-
-TESTS_FILES =			$(TESTS_MAIN_FILES) $(TESTS_INSTRUCTIONS_FILES)
-
-# ========== OBJ ==========
-
-# ---------- MAIN ----------
-
-TESTS_MAIN_OBJ =			$(TESTS_MAIN_FILES:.c=.o)
-
-# ---------- INSTRUCTIONS ----------
-
-TESTS_INSTRUCTIONS_OBJ =	$(TESTS_INSTRUCTIONS_FILES:.c=.o)
-
-# ---------- ALL ----------
-
-ALL_OBJ =					$(TESTS_MAIN_OBJ) $(TESTS_INSTRUCTIONS_OBJ)
+TESTS_FILES =	./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_instructions.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/$(TESTS_UTILS_DIR)/print.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_reverse_rotate.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_rotate.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_swap.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_push.c
 
 # ========== NAMES ==========
 
 NAME_TESTS = push_swap_tests
-
-NAME_INSTRUCTIONS = tests_instructions.a
 
 # ========== RULES ==========
 
@@ -320,9 +278,8 @@ NAME_INSTRUCTIONS = tests_instructions.a
 
 tests: $(NAME_TESTS)
 
-# ---------- INSTRUCTIONS ----------
-
-tests_instructions: $(NAME_INSTRUCTIONS)
+$(NAME_TESTS): $(TESTS_FILES) $(INSTRUCTIONS_FILES) $(LIB_FILES)
+	$(CC) $(CFLAGS) -g3 $(TESTS_FILES) $(INSTRUCTIONS_FILES) $(LIB_FILES) $(INCLUDES) $(TESTS_INCLUDES) -o $@
 
 # ########## IMPLICIT RUlES ##########
 
@@ -332,3 +289,19 @@ tests_instructions: $(NAME_INSTRUCTIONS)
 .PHONY: all clean fclean re instructions lib parse
 
 -include $(DFILES)
+
+# ========== ALL ==========
+
+ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ)
+
+# ---------- CLEAN ----------
+
+clean:
+	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_TESTS) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO)
+
+fclean: clean
+	rm -rf $(NAME_MAIN) $(NAME_MAIN_DEBUG)
+
+# ---------- re ----------
+
+re: fclean all

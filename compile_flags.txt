@@ -24,3 +24,5 @@
 -I./src/parse/headers
 -I./tests
 -I./tests/instructions/headers
+-I./tests/lib/include
+-I./tests/lib/include/headers

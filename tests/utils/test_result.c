@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_instructions.c                               :+:      :+:    :+:   */
+/*   test_result.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 16:18:19 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/07 16:40:34 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/07 15:44:56 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/07 15:45:44 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_tests_instructions.h"
 #include "includes_tests_instructions.h"
 
-int	main(void)
+test_result_t	build_result(char *got, bool success)
 {
-	tests_instructions_push();
-	return (EXIT_SUCCESS);
+	test_result_t	result;
+
+	result.got = got;
+	result.success = success;
+	return (result);
 }

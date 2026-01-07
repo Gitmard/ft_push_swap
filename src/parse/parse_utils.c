@@ -66,9 +66,9 @@ int	atoi_check(char *arg, t_stacks *stacks, t_set *set)
 	return (add_in_struct((int)(ret * sign), stacks, set));
 }
 
-t_args	*create_stacks(void)
+t_stacks	*create_stacks(void)
 {
-	t_stacks stacks;
+	t_stacks *stacks;
 
 	stacks = malloc(sizeof(t_stacks));
 	if (!stacks)

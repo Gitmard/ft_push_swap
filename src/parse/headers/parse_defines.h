@@ -19,7 +19,7 @@
 # define FREE_A 2
 # define FREE_B 4
 # define FREE_LISTS 8
-# define FREE_ARGS_ALL 15
+# define FREE_STACKS_ALL 15
 
 # define ADAPTIVE 1
 # define SIMPLE 2

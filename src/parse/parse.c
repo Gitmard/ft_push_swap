@@ -54,25 +54,25 @@ int	parse_current(char *arg, t_stacks *stacks, t_set *set)
 	return (SUCCESS);
 }
 
-int	check_flags(t_args *args)
+int	check_flags(t_stacks *stacks)
 {
 	uint32_t	flags;
 
 	flags = ADAPTIVE | SIMPLE | MEDIUM | COMPLEX;
-	if ((args->flags & flags) == ADAPTIVE)
+	if ((stacks->flags & flags) == ADAPTIVE)
 		return (SUCCESS);
-	if ((args->flags & flags) == SIMPLE)
+	if ((stacks->flags & flags) == SIMPLE)
 		return (SUCCESS);
-	if ((args->flags & flags) == MEDIUM)
+	if ((stacks->flags & flags) == MEDIUM)
 		return (SUCCESS);
-	if ((args->flags & flags) == COMPLEX)
+	if ((stacks->flags & flags) == COMPLEX)
 		return (SUCCESS);
-	if (args->flags == BENCH || args->flags == 0)
+	if (stacks->flags == BENCH || stacks->flags == 0)
 		return (SUCCESS);
 	return (ERROR);
 }
 
-t_args	*parse(int ac, char **av)
+t_stacks	*parse(int ac, char **av)
 {
 	t_stacks	*stacks;
 	t_set		*set;
@@ -86,17 +86,17 @@ t_args	*parse(int ac, char **av)
 		if (parse_current(av[i], stacks, set) == ERROR)
 		{
 			free_set(set, FREE_SET_ALL);
-			free_args(args, FREE_ARGS_ALL);
+			free_args(stacks, FREE_STACKS_ALL);
 			return (NULL);
 		}
 		i++;
 	}
-	if (check_flags(args) == INVALID)
+	if (check_flags(stacks) == INVALID)
 	{
 		free_set(set, FREE_SET_ALL);
-		free_args(args, FREE_ARGS_ALL);
+		free_args(stacks, FREE_STACKS_ALL);
 		return (NULL);
 	}
 	free_set(set, FREE_SET_ALL);
-	return (args);
+	return (stacks);
 }

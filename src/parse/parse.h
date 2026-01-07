@@ -15,7 +15,7 @@
 
 # include "parse_defines.h"
 
-t_args	*parse(int ac, char **av);
-void	*free_args(t_args *args, uint32_t flag);
+t_stacks	*parse(int ac, char **av);
+void	free_stacks(t_stacks *stacks, uint32_t flag);
 
 #endif

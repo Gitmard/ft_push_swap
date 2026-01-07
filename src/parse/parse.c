@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:39:30 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 11:20:52 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:08:05 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,11 @@ int	parse_flags(char *arg, t_stacks *stacks)
 	return (SUCCESS);
 }
 
-int	stack_add(t_stack *stack, int value)
+int	stack_add(t_stacks *stacks, int value)
 {
-	t_list	*new;
-
-	new = ft_stackadd_new_tail(stack, value);
-	if (!new)
+	if (!ft_stackadd_new_tail(stacks->a, value))
 		return (ERROR);
+	stacks->combined_sizes++;
 	return (SUCCESS);
 }
 

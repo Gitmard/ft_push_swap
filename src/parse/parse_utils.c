@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 14:23:52 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 16:08:17 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:14:45 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	add_in_struct(int value, t_stacks *stacks, t_set *set)
 {
 	if (add_in_set(set, value) == ALREADY_IN)
 		return (ERROR);
-	if (stack_add(stacks->a, value) == ERROR)
+	if (stack_add(stacks, value) == ERROR)
 		return (ERROR);
 	return (SUCCESS);
 }

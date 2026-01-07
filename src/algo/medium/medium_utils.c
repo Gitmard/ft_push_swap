@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:25 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 16:00:14 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:15:35 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	update_poped(int w_start, int value, bool *poped, int *sorted)
 
 void	update_window(int *w_start, int w_size, bool *poped, size_t size)
 {
-	ft_printf("%d\n", size);
 	while ((size_t)((*w_start) + w_size + 1) < size && poped[(*w_start)])
 		(*w_start)++;
 }

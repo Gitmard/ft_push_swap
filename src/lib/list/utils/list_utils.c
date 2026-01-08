@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 17:32:18 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/08 17:11:33 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/08 17:21:08 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/08 17:21:19 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-#define TESTS_H
+#include "list_includes.h"
 
-#endif
+t_list	*reset_link(t_list *link)
+{
+	if (!link)
+		return (NULL);
+	link->prev = NULL;
+	link->next = NULL;
+	return (link);
+}

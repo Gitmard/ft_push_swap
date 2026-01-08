@@ -18,6 +18,8 @@ LIB_HASH_SET_DIR = hash_set
 
 LIB_LIST_DIR = list
 
+LIB_LIST_UTILS_DIR = utils
+
 LIB_MEM_DIR = mem
 
 LIB_PRINTF_DIR = printf
@@ -117,7 +119,8 @@ LIB_HASH_SET_FILES =	./$(SRC_DIR)/$(LIB_DIR)/$(LIB_HASH_SET_DIR)/hash_set.c \
 LIB_LIST_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstadd.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstclear.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstnew.c \
-						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstremove.c
+						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstremove.c \
+						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/$(LIB_LIST_UTILS_DIR)/list_utils.c
 
 LIB_MEM_FILES =			./$(SRC_DIR)/$(LIB_DIR)/$(LIB_MEM_DIR)/mem.c
 

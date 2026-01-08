@@ -70,61 +70,6 @@ int	check_flags(t_stacks *stacks)
 	return (ERROR);
 }
 
-int	count_words(char *arg)
-{
-	bool	flag;
-	int		count;
-	int		i;
-
-	flag = true;
-	count = 0;
-	i = 0;
-	while (arg[i])
-	{
-		if (arg[i] == ' ')
-			flag = true;
-		else if (flag)
-			count++;
-		i++;
-	}
-	return (count);
-}
-
-int	count_full_words(int ac, char **av)
-{
-	int	words_count;
-	int	i;
-
-	words_count = 1;
-	i = 1;
-	while (i < ac)
-	{
-		words_count += count_words(av[i]);
-		i++;
-	}
-	return (words_count);
-}
-
-int	normalise_args(int &ac, char ***av, int &n_count)
-{
-	int		words_count;
-	char	**split;
-	bool	flag;
-	int		i;
-	int		j;
-
-	words_count = count_full_words(*ac, *av);
-	split = malloc(sizeof(char *) * words_count);
-	if (!split)
-		return (1);
-	i = 0;
-	j = 0;
-	while (i < words_count)
-	{
-		split[i] = create_words((*av)[])
-	}
-}
-
 t_stacks	*parse(int ac, char **av)
 {
 	t_stacks	*stacks;
@@ -132,27 +77,24 @@ t_stacks	*parse(int ac, char **av)
 	int			i;
 	int			n_count;
 
+	n_count = 0;
 	if (normalise_args(&ac, &av, &n_count))
 		return (NULL);
 	if (create_ds(n_count, &stacks, &set) == ERROR)
-		return (free_args(av, ac));
-	i = 1;
+	{
+		free_split(av);
+		return (NULL);
+	}
+	i = 0;
 	while (i < ac)
 	{
 		if (parse_current(av[i], stacks, set) == ERROR)
-		{
-			free_set(set, FREE_SET_ALL);
-			free_stacks(stacks, FREE_STACKS_ALL);
-			return (NULL);
-		}
+			return (free_ds(set, stacks, av));
 		i++;
 	}
 	if (check_flags(stacks) == INVALID)
-	{
-		free_set(set, FREE_SET_ALL);
-		free_stacks(stacks, FREE_STACKS_ALL);
-		return (NULL);
-	}
+		return (free_ds(set, stacks, av));
 	free_set(set, FREE_SET_ALL);
+	free_split(av);
 	return (stacks);
 }

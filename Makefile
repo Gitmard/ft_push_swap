@@ -145,7 +145,9 @@ LIB_FILES =				$(LIB_HASH_SET_FILES) \
 # ---------- PARSE ----------
 
 PARSE_FILES =			./$(SRC_DIR)/$(PARSE_DIR)/parse.c \
-						./$(SRC_DIR)/$(PARSE_DIR)/parse_utils.c
+						./$(SRC_DIR)/$(PARSE_DIR)/parse_utils.c \
+						./$(SRC_DIR)/$(PARSE_DIR)/normalise_args.c \
+						./$(SRC_DIR)/$(PARSE_DIR)/free.c
 
 # ---------- ALGO ----------
 

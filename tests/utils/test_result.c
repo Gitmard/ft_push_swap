@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   test_result.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 17:32:18 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/08 17:11:33 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/07 15:44:56 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/07 15:45:44 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-#define TESTS_H
+#include "includes_tests_instructions.h"
 
-#endif
+test_result_t	build_result(char *got, bool success)
+{
+	test_result_t	result;
+
+	result.got = got;
+	result.success = success;
+	return (result);
+}

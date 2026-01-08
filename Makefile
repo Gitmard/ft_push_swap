@@ -18,6 +18,8 @@ LIB_HASH_SET_DIR = hash_set
 
 LIB_LIST_DIR = list
 
+LIB_LIST_UTILS_DIR = utils
+
 LIB_MEM_DIR = mem
 
 LIB_PRINTF_DIR = printf
@@ -84,7 +86,7 @@ INCLUDES_PARSE = 		-I./$(SRC_DIR)/$(PARSE_DIR) -I./$(SRC_DIR)/$(PARSE_DIR)/$(HEA
 
 # ---------- ALGO ----------
 
-INCLUDES_ALGO_UTILS = 		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/$(HEADERS_DIR)
+INCLUDES_ALGO_UTILS = 	-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/$(HEADERS_DIR)
 
 INCLUDES_ALGO_MEDIUM = 		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/$(HEADERS_DIR)
 
@@ -117,7 +119,8 @@ LIB_HASH_SET_FILES =	./$(SRC_DIR)/$(LIB_DIR)/$(LIB_HASH_SET_DIR)/hash_set.c \
 LIB_LIST_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstadd.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstclear.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstnew.c \
-						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstremove.c
+						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/ft_lstremove.c \
+						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_LIST_DIR)/$(LIB_LIST_UTILS_DIR)/list_utils.c
 
 LIB_MEM_FILES =			./$(SRC_DIR)/$(LIB_DIR)/$(LIB_MEM_DIR)/mem.c
 
@@ -182,9 +185,6 @@ PARSE_OBJ = $(PARSE_FILES:.c=.o)
 
 ALGO_OBJ = $(ALGO_FILES:.c=.o)
 
-# ---------- ALL ----------
-
-ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ)
 
 # ========== DFILES ==========
 
@@ -246,19 +246,45 @@ algo: $(NAME_ALGO)
 $(NAME_ALGO): $(ALGO_OBJ)
 	ar rcs $@ $^
 
-# ---------- CLEAN ----------
+# ########## TESTS ##########
 
-clean:
-	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO)
+# ========== DIRECTORIES ==========
 
-fclean: clean
-	rm -rf $(NAME_MAIN) $(NAME_MAIN_DEBUG)
+TESTS_DIR = tests
 
-# ---------- re ----------
+TESTS_INSTRUCTIONS_DIR = instructions
 
-re: fclean all
+TESTS_UTILS_DIR = utils
 
-# ---------- IMPLICIT ----------
+# ========== HEADERS =========
+
+TESTS_INCLUDES =	-I$(TESTS_DIR) \
+					-I$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR) \
+					-I$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/headers
+
+# ========== FILES ==========
+
+TESTS_FILES =	./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_instructions.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/$(TESTS_UTILS_DIR)/print.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_reverse_rotate.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_rotate.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_swap.c \
+				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_push.c
+
+# ========== NAMES ==========
+
+NAME_TESTS = push_swap_tests
+
+# ========== RULES ==========
+
+# ---------- MAIN ----------
+
+tests: $(NAME_TESTS)
+
+$(NAME_TESTS): $(TESTS_FILES) $(INSTRUCTIONS_FILES) $(LIB_FILES)
+	$(CC) $(CFLAGS) -g3 $(TESTS_FILES) $(INSTRUCTIONS_FILES) $(LIB_FILES) $(INCLUDES) $(TESTS_INCLUDES) -o $@
+
+# ########## IMPLICIT RUlES ##########
 
 %.o: %.c
 	$(CC) $(CFLAGS) -MMD -c $< -o $@ $(INCLUDES)
@@ -266,3 +292,19 @@ re: fclean all
 .PHONY: all clean fclean re instructions lib parse
 
 -include $(DFILES)
+
+# ========== ALL ==========
+
+ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ)
+
+# ---------- CLEAN ----------
+
+clean:
+	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_TESTS) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO)
+
+fclean: clean
+	rm -rf $(NAME_MAIN) $(NAME_MAIN_DEBUG)
+
+# ---------- re ----------
+
+re: fclean all

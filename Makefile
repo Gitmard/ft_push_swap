@@ -243,61 +243,14 @@ algo: $(NAME_ALGO)
 $(NAME_ALGO): $(ALGO_OBJ)
 	ar rcs $@ $^
 
-# ########## TESTS ##########
-
-# ========== DIRECTORIES ==========
-
-TESTS_DIR = tests
-
-TESTS_INSTRUCTIONS_DIR = instructions
-
-TESTS_UTILS_DIR = utils
-
-# ========== HEADERS =========
-
-TESTS_INCLUDES =	-I$(TESTS_DIR) \
-					-I$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR) \
-					-I$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/headers
-
-# ========== FILES ==========
-
-TESTS_FILES =	./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_instructions.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/$(TESTS_UTILS_DIR)/print.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_reverse_rotate.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_rotate.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_swap.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_push.c
-
-# ========== NAMES ==========
-
-NAME_TESTS = push_swap_tests
-
-# ========== RULES ==========
-
-# ---------- MAIN ----------
-
-tests: $(NAME_TESTS)
-
-$(NAME_TESTS): $(TESTS_FILES) $(INSTRUCTIONS_FILES) $(LIB_FILES)
-	$(CC) $(CFLAGS) -g3 $(TESTS_FILES) $(INSTRUCTIONS_FILES) $(LIB_FILES) $(INCLUDES) $(TESTS_INCLUDES) -o $@
-
-# ########## IMPLICIT RUlES ##########
-
-%.o: %.c
-	$(CC) $(CFLAGS) -MMD -c $< -o $@ $(INCLUDES)
-
-.PHONY: all clean fclean re instructions lib parse
-
--include $(DFILES)
-
-# ========== ALL ==========
+# ---------- ALL ----------
 
 ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ)
 
 # ---------- CLEAN ----------
 
 clean:
-	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_TESTS) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO)
+	rm -rf $(DFILES) $(ALL_OBJ)$(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO)
 
 fclean: clean
 	rm -rf $(NAME_MAIN) $(NAME_MAIN_DEBUG)
@@ -305,3 +258,12 @@ fclean: clean
 # ---------- re ----------
 
 re: fclean all
+
+# ---------- IMPLICIT ----------
+
+%.o: %.c
+	$(CC) $(CFLAGS) -MMD -c $< -o $@ $(INCLUDES)
+
+.PHONY: all clean fclean re instructions lib parse
+
+-include $(DFILES)

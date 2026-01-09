@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:39:30 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 16:08:05 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 17:15:31 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,26 +75,26 @@ t_stacks	*parse(int ac, char **av)
 	t_stacks	*stacks;
 	t_set		*set;
 	int			i;
+	int			n_count;
 
-	if (create_ds(ac, &stacks, &set) == ERROR)
+	n_count = 0;
+	if (normalise_args(&ac, &av, &n_count))
 		return (NULL);
-	i = 1;
+	if (create_ds(n_count, &stacks, &set) == ERROR)
+	{
+		free_split(av);
+		return (NULL);
+	}
+	i = 0;
 	while (i < ac)
 	{
 		if (parse_current(av[i], stacks, set) == ERROR)
-		{
-			free_set(set, FREE_SET_ALL);
-			free_stacks(stacks, FREE_STACKS_ALL);
-			return (NULL);
-		}
+			return (free_ds(set, stacks, av));
 		i++;
 	}
 	if (check_flags(stacks) == INVALID)
-	{
-		free_set(set, FREE_SET_ALL);
-		free_stacks(stacks, FREE_STACKS_ALL);
-		return (NULL);
-	}
+		return (free_ds(set, stacks, av));
 	free_set(set, FREE_SET_ALL);
+	free_split(av);
 	return (stacks);
 }

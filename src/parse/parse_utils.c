@@ -6,27 +6,11 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 14:23:52 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 16:14:45 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 10:55:13 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_defines.h"
-
-void	*free_stacks(t_stacks *stacks, uint32_t flag)
-{
-	if (flag & FREE_LISTS)
-	{
-		ft_lstclear(stacks->a->head);
-		ft_lstclear(stacks->b->head);
-	}
-	if (flag & FREE_B)
-		free(stacks->b);
-	if (flag & FREE_A)
-		free(stacks->a);
-	if (flag & FREE_STACKS)
-		free(stacks);
-	return (NULL);
-}
 
 int	add_in_struct(int value, t_stacks *stacks, t_set *set)
 {
@@ -92,12 +76,10 @@ t_stacks	*create_stacks(void)
 
 int	create_ds(int ac, t_stacks **stacks, t_set **set)
 {
-	if (ac == 1)
-		return (ERROR);
 	*stacks = create_stacks();
 	if (!*stacks)
 		return (ERROR);
-	*set = create_set(ac - 1);
+	*set = create_set(ac);
 	if (!*set)
 	{
 		free_stacks(*stacks, FREE_STACKS_ALL);

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 16:26:22 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 10:57:17 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 	int			steps;
 
 	stacks = parse(ac, av);
-	if (!stacks || !stacks->a->head)
+	if (!stacks)
 	{
 		ft_printf("Error\n");
 		return (1);

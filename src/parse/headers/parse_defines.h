@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:42:49 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 16:14:17 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 11:18:57 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int		create_ds(int ac, t_stacks **stacks, t_set **set);
 int		atoi_check(char *arg, t_stacks *stacks, t_set *set);
 int		stack_add(t_stacks *stacks, int value);
 int		normalise_args(int *ac, char ***av, int *n_count);
-
 
 int		ft_strncmp(char *s1, char *s2, size_t n);
 int		ft_strcmp(char *s1, char *s2);

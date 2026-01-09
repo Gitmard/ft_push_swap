@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   normalise_args.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/09 11:18:20 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/09 11:18:46 by vquetier         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "parse_defines.h"
 
@@ -24,7 +35,7 @@ int	count_words(char *arg)
 	return (count);
 }
 
-int     count_full_words(int ac, char **av)
+int	count_full_words(int ac, char **av)
 {
 	int	words_count;
 	int	i;

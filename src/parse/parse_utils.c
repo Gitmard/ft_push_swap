@@ -54,7 +54,7 @@ t_stacks	*create_stacks(void)
 {
 	t_stacks	*stacks;
 
-	stacks = malloc(sizeof(t_stacks));
+	stacks = ft_calloc(1, sizeof(t_stacks));
 	if (!stacks)
 		return (NULL);
 	stacks->flags = 0;

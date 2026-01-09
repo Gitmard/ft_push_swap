@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   bench_defines.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 13:28:40 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 17:09:37 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2026/01/09 16:06:53 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/14 15:01:56 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef BENCH_DEFINES_H
+# define BENCH_DEFINES_H
 
-# include "utils_includes.h"
+# include "bench_includes.h"
 
-bool	is_sorted(t_stacks *stacks);
+void	ft_putstrnbr_stderr(char *str, int n);
+void	ft_putstr_stderr(char *str);
+int		get_power(int n);
 
 #endif

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   bench.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 13:28:40 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 17:09:37 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2026/01/09 16:08:01 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/09 17:27:04 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef BENCH_H
+# define BENCH_H
 
-# include "utils_includes.h"
+# include "bench_defines.h"
 
-bool	is_sorted(t_stacks *stacks);
+void	bench(t_stacks *stacks, float disorder);
 
 #endif

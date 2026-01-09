@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:32:31 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/07 17:12:14 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/09 16:48:39 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	push(t_stack *from, t_stack *to)
 
 void	pa(t_stacks *stacks)
 {
+	stacks->op.total++;
+	stacks->op.pa++;
 	if (!(stacks->flags & NO_PRINT))
 		ft_printf("pa\n");
 	push(stacks->b, stacks->a);
@@ -31,6 +33,8 @@ void	pa(t_stacks *stacks)
 
 void	pb(t_stacks *stacks)
 {
+	stacks->op.total++;
+	stacks->op.pb++;
 	if (!(stacks->flags & NO_PRINT))
 		ft_printf("pb\n");
 	push(stacks->a, stacks->b);

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 17:32:15 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/06 16:08:48 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 17:20:51 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 # include "lib.h"
 # include "instructions.h"
 # include "medium.h"
+# include "bench.h"
 
 #endif

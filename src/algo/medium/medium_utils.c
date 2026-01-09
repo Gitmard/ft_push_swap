@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:25 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 16:15:35 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 11:31:07 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,10 @@ void	update_stacks(int w_start, int w_size, int *sorted, t_stacks *stacks)
 	if (stacks->b->head->value <= sorted[w_start + w_size / 2]
 		&& stacks->b->size > 1)
 		rb(stacks);
+}
+
+void	ensure_w_size_is_correct(int *w_size, int w_start, uint32_t full_size)
+{
+	if (w_start + *w_size >= (int)full_size)
+		*w_size = (int)full_size - w_start - 1;
 }

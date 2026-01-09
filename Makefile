@@ -42,6 +42,10 @@ ALGO_UTILS_DIR = algo_utils
 
 ALGO_MEDIUM_DIR = medium
 
+# ---------- BENCH ----------
+
+BENCH_DIR = bench
+
 # ---------- HEADERS ----------
 
 HEADERS_DIR = headers
@@ -93,18 +97,22 @@ INCLUDES_PARSE = 		-I./$(SRC_DIR)/$(PARSE_DIR) -I./$(SRC_DIR)/$(PARSE_DIR)/$(HEA
 
 # ---------- ALGO ----------
 
-INCLUDES_ALGO_UTILS = 	-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/$(HEADERS_DIR)
+INCLUDES_ALGO_UTILS =		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/$(HEADERS_DIR)
 
 INCLUDES_ALGO_MEDIUM = 		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/$(HEADERS_DIR)
 
 INCLUDES_ALGO = $(INCLUDES_ALGO_UTILS) $(INCLUDES_ALGO_MEDIUM)
+
+# ---------- BENCH ----------
+
+INCLUDES_BENCH =		-I./$(SRC_DIR)/$(BENCH_DIR)/ -I./$(SRC_DIR)/$(BENCH_DIR)/$(HEADERS_DIR)
 
 # ---------- MAIN ----------
 
 INCLUDES_MAIN = 		-I./$(SRC_DIR) -I./$(SRC_DIR)/$(HEADERS_DIR)
 
 
-INCLUDES =				$(INCLUDES_INSTRUCTIONS) $(INCLUDES_LIB) $(INCLUDES_PARSE) $(INCLUDES_MAIN) $(INCLUDES_ALGO)
+INCLUDES =			$(INCLUDES_INSTRUCTIONS) $(INCLUDES_LIB) $(INCLUDES_PARSE) $(INCLUDES_MAIN) $(INCLUDES_ALGO) $(INCLUDES_BENCH)
 
 # ========== FILES ==========
 
@@ -168,13 +176,18 @@ ALGO_MEDIUM_FILES =		./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/medium.c \
 
 ALGO_FILES =			$(ALGO_UTILS_FILES) $(ALGO_MEDIUM_FILES)
 
+# ---------- BENCH ----------
+
+BENCH_FILES = ./$(SRC_DIR)/$(BENCH_DIR)/bench.c
+
 # ---------- ALL ----------
 
 ALL_FILES = 			$(MAIN_FILES) \
 						$(INSTRUCTIONS_FILES) \
 						$(LIB_FILES) \
 						$(PARSE_FILES) \
-						$(ALGO_FILES)
+						$(ALGO_FILES) \
+						$(BENCH_FILES)
 
 # ========== OBJ ==========
 
@@ -197,6 +210,9 @@ PARSE_OBJ = $(PARSE_FILES:.c=.o)
 
 ALGO_OBJ = $(ALGO_FILES:.c=.o)
 
+# ---------- BENCH ----------
+
+BENCH_OBJ = $(BENCH_FILES:.c=.o)
 
 # ========== DFILES ==========
 
@@ -216,14 +232,16 @@ NAME_PARSE = parse.a
 
 NAME_ALGO = algo.a
 
+NAME_BENCH = bench.a
+
 # ========== RULES ==========
 
 # ---------- MAIN ----------
 
 all: $(NAME_MAIN)
 
-$(NAME_MAIN): $(SRCS_OBJ) $(NAME_ALGO) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB)
-	$(CC) $(CFLAGS) $(SRCS_OBJ) $(NAME_ALGO) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) -o $@
+$(NAME_MAIN): $(SRCS_OBJ) $(NAME_ALGO) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_BENCH)
+	$(CC) $(CFLAGS) $(SRCS_OBJ) $(NAME_ALGO) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_BENCH) -o $@
 
 debug: $(NAME_MAIN_DEBUG)
 
@@ -256,6 +274,13 @@ $(NAME_PARSE): $(PARSE_OBJ)
 algo: $(NAME_ALGO)
 
 $(NAME_ALGO): $(ALGO_OBJ)
+	ar rcs $@ $^
+
+# ---------- BENCH ----------
+
+bench: $(NAME_ALGO)
+
+$(NAME_BENCH): $(BENCH_OBJ)
 	ar rcs $@ $^
 
 # ########## TESTS ##########
@@ -307,12 +332,12 @@ $(NAME_TESTS): $(TESTS_FILES) $(INSTRUCTIONS_FILES) $(LIB_FILES)
 
 # ========== ALL ==========
 
-ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ)
+ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ) $(BENCH_OBJ)
 
 # ---------- CLEAN ----------
 
 clean:
-	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_TESTS) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO)
+	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_TESTS) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO) $(NAME_BENCH)
 
 fclean: clean
 	rm -rf $(NAME_MAIN) $(NAME_MAIN_DEBUG)

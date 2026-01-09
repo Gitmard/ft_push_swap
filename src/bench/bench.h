@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sort.c                                       :+:      :+:    :+:   */
+/*   bench.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 13:24:37 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 17:11:23 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2026/01/09 16:08:01 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/09 17:27:04 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils_includes.h"
+#ifndef BENCH_H
+# define BENCH_H
 
-bool	is_sorted(t_stacks *stacks)
-{
-	t_list	*iter;
+# include "bench_defines.h"
 
-	if (stacks->combined_sizes <= 1)
-		return (true);
-	iter = stacks->a->head;
-	while (iter->next)
-	{
-		if (iter->value > iter->next->value)
-			return (false);
-		iter = iter->next;
-	}
-	return (true);
-}
+void	bench(t_stacks *stacks, float disorder);
+
+#endif

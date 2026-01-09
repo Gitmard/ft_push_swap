@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:51:45 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 14:50:26 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 17:10:41 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	(*locate_closest(t_stacks *stacks, int w_start,
 	return (&ra);
 }
 
-int	fill_buckets(t_stacks *stacks, int *sorted, int w_size, int *steps)
+int	fill_buckets(t_stacks *stacks, int *sorted, int w_size)
 {
 	int		w_start;
 	bool	*poped;
@@ -50,12 +50,9 @@ int	fill_buckets(t_stacks *stacks, int *sorted, int w_size, int *steps)
 		f = locate_closest(stacks, w_start, w_size, sorted);
 		while (!(stacks->a->head->value >= sorted[w_start]
 				&& stacks->a->head->value <= sorted[w_start + w_size]))
-		{
 			f(stacks);
-			(*steps)++;
-		}
 		update_poped(w_start, stacks->a->head->value, poped, sorted);
-		(*steps) += update_stacks(w_start, w_size, sorted, stacks);
+		update_stacks(w_start, w_size, sorted, stacks);
 		update_window(&w_start, w_size, poped, stacks->combined_sizes);
 	}
 	free(poped);
@@ -83,7 +80,7 @@ void	(*locate_top(t_stacks *stacks, int target))(t_stacks *stacks)
 	return (&ra);
 }
 
-void	insert_in_a(t_stacks *stacks, int *sorted, int size, int *steps)
+void	insert_in_a(t_stacks *stacks, int *sorted, int size)
 {
 	int		top_index;
 	void	(*f)(t_stacks *);
@@ -93,12 +90,8 @@ void	insert_in_a(t_stacks *stacks, int *sorted, int size, int *steps)
 	{
 		f = locate_top(stacks, sorted[top_index]);
 		while (stacks->b->head->value != sorted[top_index])
-		{
-			(*steps)++;
 			f(stacks);
-		}
 		pa(stacks);
-		(*steps)++;
 		top_index--;
 	}
 }
@@ -107,19 +100,17 @@ int	medium(t_stacks *stacks)
 {
 	int	*sorted;
 	int	w_size;
-	int	steps;
 
 	sorted = create_sorted_array(stacks);
 	if (!sorted)
 		return (-1);
 	w_size = ft_sqrt(stacks->a->size);
-	steps = 0;
-	if (fill_buckets(stacks, sorted, w_size, &steps))
+	if (fill_buckets(stacks, sorted, w_size))
 	{
 		free(sorted);
 		return (-1);
 	}
-	insert_in_a(stacks, sorted, stacks->b->size, &steps);
+	insert_in_a(stacks, sorted, stacks->b->size);
 	free(sorted);
-	return (steps);
+	return (0);
 }

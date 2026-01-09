@@ -28,6 +28,8 @@ LIB_STACK_DIR = stack
 
 LIB_STRING_DIR = string
 
+LIB_UTILS_DIR = utils
+
 # ---------- PARSE ----------
 
 PARSE_DIR = parse
@@ -72,13 +74,18 @@ INCLUDES_LIB_MAIN =		-I./$(SRC_DIR)/$(LIB_DIR) \
 INCLUDES_PRINTF =		-I./$(SRC_DIR)/$(LIB_DIR)/$(LIB_PRINTF_DIR) \
 						-I./$(SRC_DIR)/$(LIB_DIR)/$(LIB_PRINTF_DIR)/$(HEADERS_DIR)
 
+INCLUDES_LIB_UTILS =		-I./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR) \
+					-I./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/$(HEADERS_DIR)
+
+
 INCLUDES_LIB =			$(INCLUDES_LIB_MAIN) \
 						$(INCLUDES_LIB_HASH_SET) \
 						$(INCLUDES_LIB_LIST) \
 						$(INCLUDES_LIB_MEM) \
 						$(INCLUDES_PRINTF) \
 						$(INCLUDES_LIB_STACK) \
-						$(INCLUDES_LIB_STRING)
+						$(INCLUDES_LIB_STRING) \
+						$(INCLUDES_LIB_UTILS)
 
 # ---------- PARSE ----------
 
@@ -135,12 +142,15 @@ LIB_STACK_FILES=		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/ft_stackadd.c \
 
 LIB_STRING_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STRING_DIR)/string.c \
 
+LIB_UTILS_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/check_sort.c \
+
 LIB_FILES =				$(LIB_HASH_SET_FILES) \
 						$(LIB_LIST_FILES) \
 						$(LIB_MEM_FILES) \
 						$(LIB_STRING_FILES) \
 						$(LIB_STACK_FILES) \
-						$(LIB_PRINTF_FILES)
+						$(LIB_PRINTF_FILES) \
+						$(LIB_UTILS_FILES)
 
 # ---------- PARSE ----------
 

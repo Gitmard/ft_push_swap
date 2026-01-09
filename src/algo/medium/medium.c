@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:51:45 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 11:30:53 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 14:50:26 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	fill_buckets(t_stacks *stacks, int *sorted, int w_size, int *steps)
 		return (ERROR);
 	while (stacks->a->size > 0)
 	{
-		f = locate_closest(stacks, w_start, w_size, sorted);
 		ensure_w_size_is_correct(&w_size, w_start, stacks->combined_sizes);
+		f = locate_closest(stacks, w_start, w_size, sorted);
 		while (!(stacks->a->head->value >= sorted[w_start]
 				&& stacks->a->head->value <= sorted[w_start + w_size]))
 		{
@@ -55,9 +55,8 @@ int	fill_buckets(t_stacks *stacks, int *sorted, int w_size, int *steps)
 			(*steps)++;
 		}
 		update_poped(w_start, stacks->a->head->value, poped, sorted);
-		update_stacks(w_start, w_size, sorted, stacks);
+		(*steps) += update_stacks(w_start, w_size, sorted, stacks);
 		update_window(&w_start, w_size, poped, stacks->combined_sizes);
-		(*steps)++;
 	}
 	free(poped);
 	return (SUCCESS);

@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/09 14:19:26 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2026/01/09 13:28:40 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/09 14:19:08 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#ifndef UTILS_H
+# define UTILS_H
 
-# include "list.h"
-# include "hash_set.h"
-# include "mem.h"
-# include "string.h"
-# include "stack.h"
-# include "ft_printf.h"
-# include "utils.h"
+# include "utils_defines.h"
+
+bool	is_sorted(t_stacks *stacks);
 
 #endif

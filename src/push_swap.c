@@ -6,13 +6,14 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 10:57:17 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 14:45:41 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
+/*
 static void	print_stack(t_stack *stack)
 {
 	t_list	*curr;
@@ -29,22 +30,46 @@ static void	print_stack(t_stack *stack)
 		curr = curr->next;
 	}
 }
+*/
+
+int	raise_error(void)
+{
+	ft_printf("ERROR\n");
+	return (ERROR);
+}
+
+int	handle_stacks(t_stacks *stacks)
+{
+	int	steps;
+
+	steps = 0;
+	if (stacks->flags & SIMPLE)
+		ft_printf("simple: not implemented\n");//steps = simple(stacks);
+	else if (stacks->flags & MEDIUM)
+		steps = medium(stacks);
+	else if (stacks->flags & COMPLEX)
+		ft_printf("complex: not implemented\n");//steps = complex(stacks);
+	else
+		ft_printf("adaptive: not implemented\n");//steps = adaptive(stacks);
+	free_stacks(stacks, FREE_STACKS_ALL);
+	if (steps == -1)
+		return (raise_error());
+	if (stacks->flags & BENCH)
+		ft_printf("%d\n", steps);//bench(stacks, steps);
+	return (SUCCESS);
+}
 
 int	main(int ac, char **av)
 {
 	t_stacks	*stacks;
-	int			steps;
 
 	stacks = parse(ac, av);
 	if (!stacks)
+		return (raise_error());
+	if (is_sorted(stacks))
 	{
-		ft_printf("Error\n");
-		return (1);
+		free_stacks(stacks, FREE_STACKS_ALL);
+		return (SUCCESS);
 	}
-	ft_printf("%d\n\n", stacks->flags);
-	print_stack(stacks->a);
-	steps = medium(stacks);
-	print_stack(stacks->a);
-	ft_printf("%d\n", steps);
-	free_stacks(stacks, FREE_STACKS_ALL);
+	return (handle_stacks(stacks));
 }

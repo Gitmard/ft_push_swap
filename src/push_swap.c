@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 14:45:41 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 16:54:27 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,18 @@ int	handle_stacks(t_stacks *stacks)
 
 	steps = 0;
 	if (stacks->flags & SIMPLE)
-		ft_printf("simple: not implemented\n");//steps = simple(stacks);
+		ft_printf("simple: not implemented\n");
 	else if (stacks->flags & MEDIUM)
 		steps = medium(stacks);
 	else if (stacks->flags & COMPLEX)
-		ft_printf("complex: not implemented\n");//steps = complex(stacks);
+		ft_printf("complex: not implemented\n");
 	else
-		ft_printf("adaptive: not implemented\n");//steps = adaptive(stacks);
+		ft_printf("adaptive: not implemented\n");
 	free_stacks(stacks, FREE_STACKS_ALL);
 	if (steps == -1)
 		return (raise_error());
 	if (stacks->flags & BENCH)
-		ft_printf("%d\n", steps);//bench(stacks, steps);
+		ft_printf("%d\n", steps);
 	return (SUCCESS);
 }
 

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/27 11:47:40 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/27 11:55:33 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	handle_stacks(t_stacks *stacks)
 
 	res = 0;
 	if (stacks->flags & SIMPLE)
-		ft_printf("simple: not implemented\n");
+		simple(stacks);
 	else if (stacks->flags & MEDIUM)
 		res = medium(stacks);
 	else if (stacks->flags & COMPLEX)

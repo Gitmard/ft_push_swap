@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   simple.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 17:32:15 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:47:57 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/09 13:17:51 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/27 11:17:20 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef SIMPLE_H
+# define SIMPLE_H
+# include "algo_includes.h"
 
-# include "parse.h"
-# include "instructions.h"
-# include "lib.h"
-# include "instructions.h"
-# include "medium.h"
-# include "bench.h"
-# include "simple.h"
+void	simple(t_stacks *stacks);
 
 #endif

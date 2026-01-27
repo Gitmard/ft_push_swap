@@ -6,10 +6,11 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:47:09 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/09 16:49:02 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/27 11:45:40 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "instructions.h"
 
 static void	reverse_rotate(t_stack *stack)

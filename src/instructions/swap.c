@@ -6,10 +6,11 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:15:23 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/09 16:49:42 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/27 11:45:56 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "instructions.h"
 
 static bool	swap(t_stack *stack)

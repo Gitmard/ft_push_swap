@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   algo_includes.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 17:32:15 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:47:57 by smenard          ###   ########.fr       */
+/*   Created: 2025/12/22 19:31:49 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/09 17:05:44 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef ALGO_INCLUDES_H
+# define ALGO_INCLUDES_H
 
-# include "parse.h"
-# include "instructions.h"
 # include "lib.h"
 # include "instructions.h"
-# include "medium.h"
-# include "bench.h"
-# include "simple.h"
+# include <stdbool.h>
 
 #endif

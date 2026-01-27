@@ -31,6 +31,7 @@ LIB_STRING_DIR = string
 LIB_UTILS_DIR = utils
 
 LIB_GNL_DIR = get_next_line
+LIB_MATH_DIR = math
 
 # ---------- PARSE ----------
 
@@ -41,6 +42,8 @@ PARSE_DIR = parse
 ALGO_DIR = algo
 
 ALGO_UTILS_DIR = algo_utils
+
+ALGO_SIMPLE_DIR = simple
 
 ALGO_MEDIUM_DIR = medium
 
@@ -90,6 +93,8 @@ INCLUDES_LIB_UTILS =		-I./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR) \
 INCLUDES_LIB_GNL =		-I./$(SRC_DIR)/$(LIB_DIR)/$(LIB_GNL_DIR) \
 					-I./$(SRC_DIR)/$(LIB_DIR)/$(LIB_GNL_DIR)/$(HEADERS_DIR)
 
+INCLUDES_LIB_MATH =		-I./$(SRC_DIR)/$(LIB_DIR)/$(LIB_MATH_DIR) \
+						-I./$(SRC_DIR)/$(LIB_DIR)/$(LIB_MATH_DIR)/$(HEADERS_DIR)
 
 INCLUDES_LIB =			$(INCLUDES_LIB_MAIN) \
 						$(INCLUDES_LIB_HASH_SET) \
@@ -99,7 +104,8 @@ INCLUDES_LIB =			$(INCLUDES_LIB_MAIN) \
 						$(INCLUDES_LIB_STACK) \
 						$(INCLUDES_LIB_STRING) \
 						$(INCLUDES_LIB_UTILS) \
-						$(INCLUDES_LIB_GNL)
+						$(INCLUDES_LIB_GNL) \
+						$(INCLUDES_LIB_MATH)
 
 # ---------- PARSE ----------
 
@@ -109,9 +115,13 @@ INCLUDES_PARSE = 		-I./$(SRC_DIR)/$(PARSE_DIR) -I./$(SRC_DIR)/$(PARSE_DIR)/$(HEA
 
 INCLUDES_ALGO_UTILS =		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/$(HEADERS_DIR)
 
-INCLUDES_ALGO_MEDIUM = 		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/$(HEADERS_DIR)
+INCLUDES_ALGO_SIMPLE =	-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_SIMPLE_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_SIMPLE_DIR)/$(HEADERS_DIR)
 
-INCLUDES_ALGO = $(INCLUDES_ALGO_UTILS) $(INCLUDES_ALGO_MEDIUM)
+INCLUDES_ALGO_MEDIUM =	-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/$(HEADERS_DIR)
+
+INCLUDES_ALGO =			-I./$(SRC_DIR)/$(ALGO_DIR) \
+						-I./$(SRC_DIR)/$(ALGO_DIR)/$(HEADERS_DIR) \
+						$(INCLUDES_ALGO_UTILS) $(INCLUDES_ALGO_SIMPLE) $(INCLUDES_ALGO_MEDIUM)
 
 # ---------- BENCH ----------
 
@@ -160,7 +170,8 @@ LIB_PRINTF_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_PRINTF_DIR)/ft_printf.c \
 
 LIB_STACK_FILES=		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/ft_stackadd.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/ft_stacknew.c \
-						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/ft_stackremove.c
+						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/ft_stackremove.c \
+						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/get_previous.c
 
 LIB_STRING_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STRING_DIR)/string.c \
 
@@ -168,6 +179,7 @@ LIB_UTILS_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/check_sort.c \
 
 LIB_GNL_FILES =			./$(SRC_DIR)/$(LIB_DIR)/$(LIB_GNL_DIR)/get_next_line.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_GNL_DIR)/get_next_line_utils.c
+LIB_MATH_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_MATH_DIR)/math.c
 
 LIB_FILES =				$(LIB_HASH_SET_FILES) \
 						$(LIB_LIST_FILES) \
@@ -176,7 +188,8 @@ LIB_FILES =				$(LIB_HASH_SET_FILES) \
 						$(LIB_STACK_FILES) \
 						$(LIB_PRINTF_FILES) \
 						$(LIB_UTILS_FILES) \
-						$(LIB_GNL_FILES)
+						$(LIB_GNL_FILES) \
+						$(LIB_MATH_FILES)
 
 # ---------- PARSE ----------
 
@@ -189,10 +202,13 @@ PARSE_FILES =			./$(SRC_DIR)/$(PARSE_DIR)/parse.c \
 
 ALGO_UTILS_FILES =		./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/algo_utils.c
 
+ALGO_SIMPLE_FILES =		./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_SIMPLE_DIR)/simple.c \
+						./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_SIMPLE_DIR)/simple_metrics_utils.c
+
 ALGO_MEDIUM_FILES =		./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/medium.c \
 						./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/medium_utils.c
 
-ALGO_FILES =			$(ALGO_UTILS_FILES) $(ALGO_MEDIUM_FILES)
+ALGO_FILES =			$(ALGO_UTILS_FILES) $(ALGO_SIMPLE_FILES) $(ALGO_MEDIUM_FILES)
 
 # ---------- BENCH ----------
 
@@ -337,12 +353,12 @@ TESTS_INCLUDES =	-I$(TESTS_DIR) \
 
 # ========== FILES ==========
 
-TESTS_FILES =	./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_instructions.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/$(TESTS_UTILS_DIR)/print.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_reverse_rotate.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_rotate.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_swap.c \
-				./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_push.c
+TESTS_FILES =		./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_instructions.c \
+					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/$(TESTS_UTILS_DIR)/print.c \
+					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_reverse_rotate.c \
+					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_rotate.c \
+					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_swap.c \
+					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_push.c
 
 # ========== NAMES ==========
 

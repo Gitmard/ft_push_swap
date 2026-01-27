@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/27 15:26:55 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/27 15:49:49 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static float	calculate_disorder(t_stack *a)
 	float	disorder;
 	t_list	*current;
 
+	if (a->size <= 1)
+		return (0.0);
 	current = a->head;
 	disorder = 0;
 	while (current && current->next)

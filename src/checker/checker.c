@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:00:36 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/13 16:38:42 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/27 12:55:01 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	raise_error(int flag)
+int	raise_error_checker(int flag)
 {
 	char	buffer[256];
 	int		rd_char;
@@ -79,17 +79,17 @@ int	main(int ac, char **av)
 
 	stacks = parse(ac, av);
 	if (!stacks)
-		return (raise_error(NO_DRAIN));
+		return (raise_error_checker(NO_DRAIN));
 	if (stacks->flags != 0)
 	{
 		free_stacks(stacks, FREE_STACKS_ALL);
-		return (raise_error(NO_DRAIN));
+		return (raise_error_checker(NO_DRAIN));
 	}
 	stacks->flags = NO_PRINT;
 	if (handle_operations(stacks, get_op(), get_functions()))
 	{
 		free_stacks(stacks, FREE_STACKS_ALL);
-		return (raise_error(NO_DRAIN));
+		return (raise_error_checker(NO_DRAIN));
 	}
 	if (is_sorted(stacks))
 		write(1, "OK\n", 3);

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:18:22 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/09 17:09:59 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/27 13:24:03 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 	int				value;
+	uint32_t		target_index;
 }					t_list;
 
 typedef struct s_stack

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_utils.c                                       :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 11:16:42 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/14 14:56:41 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2026/01/27 13:43:47 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/27 13:54:32 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo_utils_includes.h"
+#include "utils_includes.h"
 
 static void	fill_tab(int *to_fill, int *fill_with, int start, int end)
 {

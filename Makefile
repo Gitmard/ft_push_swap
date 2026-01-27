@@ -41,8 +41,6 @@ PARSE_DIR = parse
 
 ALGO_DIR = algo
 
-ALGO_UTILS_DIR = algo_utils
-
 ALGO_SIMPLE_DIR = simple
 
 ALGO_MEDIUM_DIR = medium
@@ -113,15 +111,13 @@ INCLUDES_PARSE = 		-I./$(SRC_DIR)/$(PARSE_DIR) -I./$(SRC_DIR)/$(PARSE_DIR)/$(HEA
 
 # ---------- ALGO ----------
 
-INCLUDES_ALGO_UTILS =		-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/$(HEADERS_DIR)
-
 INCLUDES_ALGO_SIMPLE =	-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_SIMPLE_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_SIMPLE_DIR)/$(HEADERS_DIR)
 
 INCLUDES_ALGO_MEDIUM =	-I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR) -I./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/$(HEADERS_DIR)
 
 INCLUDES_ALGO =			-I./$(SRC_DIR)/$(ALGO_DIR) \
 						-I./$(SRC_DIR)/$(ALGO_DIR)/$(HEADERS_DIR) \
-						$(INCLUDES_ALGO_UTILS) $(INCLUDES_ALGO_SIMPLE) $(INCLUDES_ALGO_MEDIUM)
+						$(INCLUDES_ALGO_SIMPLE) $(INCLUDES_ALGO_MEDIUM)
 
 # ---------- BENCH ----------
 
@@ -176,6 +172,9 @@ LIB_STACK_FILES=		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/ft_stackadd.c \
 LIB_STRING_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STRING_DIR)/string.c \
 
 LIB_UTILS_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/check_sort.c \
+						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/print_stack.c \
+						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/sort.c \
+						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/binary_search.c \
 
 LIB_GNL_FILES =			./$(SRC_DIR)/$(LIB_DIR)/$(LIB_GNL_DIR)/get_next_line.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_GNL_DIR)/get_next_line_utils.c
@@ -196,11 +195,10 @@ LIB_FILES =				$(LIB_HASH_SET_FILES) \
 PARSE_FILES =			./$(SRC_DIR)/$(PARSE_DIR)/parse.c \
 						./$(SRC_DIR)/$(PARSE_DIR)/parse_utils.c \
 						./$(SRC_DIR)/$(PARSE_DIR)/normalise_args.c \
-						./$(SRC_DIR)/$(PARSE_DIR)/free.c
+						./$(SRC_DIR)/$(PARSE_DIR)/free.c \
+						./$(SRC_DIR)/$(PARSE_DIR)/precompute_indexes.c
 
 # ---------- ALGO ----------
-
-ALGO_UTILS_FILES =		./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_UTILS_DIR)/algo_utils.c
 
 ALGO_SIMPLE_FILES =		./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_SIMPLE_DIR)/simple.c \
 						./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_SIMPLE_DIR)/simple_metrics_utils.c
@@ -208,7 +206,7 @@ ALGO_SIMPLE_FILES =		./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_SIMPLE_DIR)/simple.c \
 ALGO_MEDIUM_FILES =		./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/medium.c \
 						./$(SRC_DIR)/$(ALGO_DIR)/$(ALGO_MEDIUM_DIR)/medium_utils.c
 
-ALGO_FILES =			$(ALGO_UTILS_FILES) $(ALGO_SIMPLE_FILES) $(ALGO_MEDIUM_FILES)
+ALGO_FILES =			$(ALGO_SIMPLE_FILES) $(ALGO_MEDIUM_FILES)
 
 # ---------- BENCH ----------
 

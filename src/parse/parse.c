@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:39:30 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/07 17:15:31 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/27 13:40:01 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_stacks	*parse(int ac, char **av)
 			return (free_ds(set, stacks, av));
 		i++;
 	}
-	if (check_flags(stacks) == INVALID)
+	if (check_flags(stacks) == INVALID || precompute_indexes(stacks) == ERROR)
 		return (free_ds(set, stacks, av));
 	free_set(set, FREE_SET_ALL);
 	free_split(av);

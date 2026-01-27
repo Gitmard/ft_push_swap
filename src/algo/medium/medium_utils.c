@@ -6,34 +6,11 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:25 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/27 11:48:18 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/27 11:49:13 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "medium_defines.h"
-
-int	ft_sqrt(int x)
-{
-	int	min;
-	int	max;
-	int	mid;
-
-	min = 0;
-	max = (x + 1) / 2;
-	while (max >= min)
-	{
-		mid = min + (max - min) / 2;
-		if (mid * mid > x)
-			max = mid - 1;
-		else if (mid * mid < x)
-			min = mid + 1;
-		else
-			return (mid);
-	}
-	if (x - (max * max) > (min * min) - x)
-		return (min);
-	return (max);
-}
 
 void	update_poped(int w_start, int value, bool *poped, int *sorted)
 {

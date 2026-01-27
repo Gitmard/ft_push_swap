@@ -6,23 +6,42 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/27 13:50:57 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/27 15:49:49 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
 
-int	raise_error(void)
+static int	raise_error(void)
 {
 	ft_printf("ERROR\n");
 	return (ERROR);
 }
 
-int	handle_stacks(t_stacks *stacks)
+static float	calculate_disorder(t_stack *a)
 {
-	int	res;
+	float	disorder;
+	t_list	*current;
 
+	if (a->size <= 1)
+		return (0.0);
+	current = a->head;
+	disorder = 0;
+	while (current && current->next)
+	{
+		if (current->value > current->next->value)
+			disorder++;
+		current = current->next;
+	}
+	return (disorder / (a->size - 1));
+}
+
+static int	handle_stacks(t_stacks *stacks)
+{
+	int		res;
+	float	disorder;
+
+	disorder = calculate_disorder(stacks->a);
 	res = 0;
 	if (stacks->flags & SIMPLE)
 		simple(stacks);
@@ -31,14 +50,14 @@ int	handle_stacks(t_stacks *stacks)
 	else if (stacks->flags & COMPLEX)
 		ft_printf("complex: not implemented\n");
 	else
-		ft_printf("adaptive: not implemented\n");
+		res = adaptive(stacks, disorder);
 	if (res == -1)
 	{
 		free_stacks(stacks, FREE_STACKS_ALL);
 		return (raise_error());
 	}
 	if (stacks->flags & BENCH)
-		bench(stacks, 0.5);
+		bench(stacks, disorder);
 	free_stacks(stacks, FREE_STACKS_ALL);
 	return (SUCCESS);
 }

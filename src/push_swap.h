@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 17:32:15 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:47:57 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/27 15:14:46 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include "instructions.h"
 # include "lib.h"
 # include "instructions.h"
-# include "medium.h"
 # include "bench.h"
-# include "simple.h"
+# include "algo.h"
 
 #endif

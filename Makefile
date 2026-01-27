@@ -259,13 +259,15 @@ BENCH_OBJ = $(BENCH_FILES:.c=.o)
 
 CHECKER_OBJ = $(CHECKER_FILES:.c=.o)
 
+# ========== ALL ==========
+
+ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ) $(BENCH_OBJ) $(CHECKER_OBJ)
+
 # ========== DFILES ==========
 
 DFILES = $(ALL_OBJ:.o=.d)
 
 # ========== NAMES ==========
-
-NAME_MAIN_DEBUG = push_swap_debug
 
 NAME_MAIN = push_swap
 
@@ -281,6 +283,11 @@ NAME_BENCH = bench.a
 
 NAME_CHECKER = checker
 
+# ========== PROGRESS TRACKING ==========
+
+TOTAL_FILES := $(words $(ALL_FILES))
+COMPILED_FILES = 0
+
 # ========== RULES ==========
 
 # ---------- MAIN ----------
@@ -288,111 +295,84 @@ NAME_CHECKER = checker
 all: $(NAME_MAIN)
 
 $(NAME_MAIN): $(SRCS_OBJ) $(NAME_ALGO) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_BENCH)
-	$(CC) $(CFLAGS) $(SRCS_OBJ) $(NAME_ALGO) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_BENCH) -o $@
+	@echo "\033[1;32m[LINKING]\033[0m $@"
+	@$(CC) $(CFLAGS) $(SRCS_OBJ) $(NAME_ALGO) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_BENCH) -o $@
+	@echo "\033[1;32m[SUCCESS]\033[0m $(NAME_MAIN) compiled successfully!"
 
 bonus: $(NAME_CHECKER)
 
 $(NAME_CHECKER): $(CHECKER_OBJ) $(NAME_PARSE) $(NAME_INSTRUCTIONS) $(NAME_LIB)
-	$(CC) $(CFLAGS) $(CHECKER_OBJ) $(NAME_PARSE) $(NAME_INSTRUCTIONS) $(NAME_LIB) -o $@
-
-debug: $(NAME_MAIN_DEBUG)
-
-$(NAME_MAIN_DEBUG): $(ALL_FILES)
-	$(CC) $(CFLAGS) -g3 $(ALL_FILES) -o $@ $(INCLUDES)
+	@echo "\033[1;32m[LINKING]\033[0m $@"
+	@$(CC) $(CFLAGS) $(CHECKER_OBJ) $(NAME_PARSE) $(NAME_INSTRUCTIONS) $(NAME_LIB) -o $@
+	@echo "\033[1;32m[SUCCESS]\033[0m $(NAME_CHECKER) compiled successfully!"
 
 # ---------- INSTRUCTIONS ----------
 
 instructions: $(NAME_INSTRUCTIONS)
 
 $(NAME_INSTRUCTIONS): $(INSTRUCTIONS_OBJ)
-	ar rcs $@ $^
+	@echo "\033[1;34m[ARCHIVE]\033[0m $@"
+	@ar rcs $@ $^
 
 # ---------- LIB ----------
 
 lib: $(NAME_LIB)
 
 $(NAME_LIB): $(LIB_OBJ)
-	ar rcs $@ $^
+	@echo "\033[1;34m[ARCHIVE]\033[0m $@"
+	@ar rcs $@ $^
 
 # ---------- PARSE ----------
 
 parse: $(NAME_PARSE)
 
 $(NAME_PARSE): $(PARSE_OBJ)
-	ar rcs $@ $^
+	@echo "\033[1;34m[ARCHIVE]\033[0m $@"
+	@ar rcs $@ $^
 
 # ---------- ALGO ----------
 
 algo: $(NAME_ALGO)
 
 $(NAME_ALGO): $(ALGO_OBJ)
-	ar rcs $@ $^
+	@echo "\033[1;34m[ARCHIVE]\033[0m $@"
+	@ar rcs $@ $^
 
 # ---------- BENCH ----------
 
-bench: $(NAME_ALGO)
+bench: $(NAME_BENCH)
 
 $(NAME_BENCH): $(BENCH_OBJ)
-	ar rcs $@ $^
-
-# ########## TESTS ##########
-
-# ========== DIRECTORIES ==========
-
-TESTS_DIR = tests
-
-TESTS_INSTRUCTIONS_DIR = instructions
-
-TESTS_UTILS_DIR = utils
-
-# ========== HEADERS =========
-
-TESTS_INCLUDES =	-I$(TESTS_DIR) \
-					-I$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR) \
-					-I$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/headers
-
-# ========== FILES ==========
-
-TESTS_FILES =		./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_instructions.c \
-					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/$(TESTS_UTILS_DIR)/print.c \
-					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_reverse_rotate.c \
-					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_rotate.c \
-					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_swap.c \
-					./$(TESTS_DIR)/$(TESTS_INSTRUCTIONS_DIR)/tests_push.c
-
-# ========== NAMES ==========
-
-NAME_TESTS = push_swap_tests
+	@echo "\033[1;34m[ARCHIVE]\033[0m $@"
+	@ar rcs $@ $^
 
 # ========== RULES ==========
 
 # ---------- MAIN ----------
 
-tests: $(NAME_TESTS)
-
-$(NAME_TESTS): $(TESTS_FILES) $(INSTRUCTIONS_FILES) $(LIB_FILES)
-	$(CC) $(CFLAGS) -g3 $(TESTS_FILES) $(INSTRUCTIONS_FILES) $(LIB_FILES) $(INCLUDES) $(TESTS_INCLUDES) -o $@
-
-# ########## IMPLICIT RUlES ##########
+# ########## IMPLICIT RULES ##########
 
 %.o: %.c
-	$(CC) $(CFLAGS) -MMD -c $< -o $@ $(INCLUDES)
+	@$(eval COMPILED_FILES=$(shell echo $$(($(COMPILED_FILES)+1))))
+	@$(eval PERCENT=$(shell echo $$(($(COMPILED_FILES)*100/$(TOTAL_FILES)))))
+	@printf "\033[1;36m[%3d%%]\033[0m %s\n" $(PERCENT) $<
+	@$(CC) $(CFLAGS) -MMD -c $< -o $@ $(INCLUDES)
 
-.PHONY: all clean fclean re instructions lib parse
+.PHONY: all clean fclean re instructions lib parse bonus
 
 -include $(DFILES)
-
-# ========== ALL ==========
-
-ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ) $(BENCH_OBJ) $(CHECKER_OBJ)
 
 # ---------- CLEAN ----------
 
 clean:
-	rm -rf $(DFILES) $(ALL_OBJ) $(NAME_TESTS) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO) $(NAME_BENCH)
+	@echo "\033[1;31m[CLEAN]\033[0m Removing object files and dependencies..."
+	@rm -rf $(DFILES) $(ALL_OBJ)$(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO) $(NAME_BENCH)
+	@echo "\033[1;32m[DONE]\033[0m Clean completed!"
 
 fclean: clean
-	rm -rf $(NAME_MAIN) $(NAME_MAIN_DEBUG) $(NAME_CHECKER)
+	@echo "\033[1;31m[FCLEAN]\033[0m Removing executables..."
+	@rm -rf $(NAME_MAIN) $(NAME_CHECKER)
+	@echo "\033[1;32m[DONE]\033[0m Full clean completed!"
 
 # ---------- re ----------
 

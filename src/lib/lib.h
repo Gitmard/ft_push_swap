@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/09 14:19:26 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/12 14:41:35 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 # include "stack.h"
 # include "ft_printf.h"
 # include "utils.h"
+# include "get_next_line.h"
 
 #endif

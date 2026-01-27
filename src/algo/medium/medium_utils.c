@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:25 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 14:49:29 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 17:05:58 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_sqrt(int x)
 	int	mid;
 
 	min = 0;
-	max = x + 1 / 2;
+	max = (x + 1) / 2;
 	while (max >= min)
 	{
 		mid = min + (max - min) / 2;
@@ -51,16 +51,12 @@ void	update_window(int *w_start, int w_size, bool *poped, size_t size)
 		(*w_start)++;
 }
 
-int	update_stacks(int w_start, int w_size, int *sorted, t_stacks *stacks)
+void	update_stacks(int w_start, int w_size, int *sorted, t_stacks *stacks)
 {
 	pb(stacks);
 	if (stacks->b->head->value <= sorted[w_start + w_size / 2]
 		&& stacks->b->size > 1)
-	{
 		rb(stacks);
-		return (2);
-	}
-	return (1);
 }
 
 void	ensure_w_size_is_correct(int *w_size, int w_start, uint32_t full_size)

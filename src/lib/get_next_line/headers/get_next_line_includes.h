@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   get_next_line_includes.h                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 13:28:40 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/09 17:09:37 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2026/01/12 14:31:39 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/13 13:36:54 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef GET_NEXT_LINE_INCLUDES_H
+# define GET_NEXT_LINE_INCLUDES_H
 
-# include "utils_includes.h"
+# include <stdlib.h>
+# include <stdint.h>
+# include <unistd.h>
+# include <stdbool.h>
 
-bool	is_sorted(t_stacks *stacks);
-
-#endif
+#endif 

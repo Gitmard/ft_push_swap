@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:15:23 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/07 16:38:37 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 16:49:42 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static bool	swap(t_stack *stack)
 
 void	sa(t_stacks *stacks)
 {
+	stacks->op.total++;
+	stacks->op.sa++;
 	if (!(stacks->flags & NO_PRINT))
 		ft_printf("sa\n");
 	swap(stacks->a);
@@ -38,6 +40,8 @@ void	sa(t_stacks *stacks)
 
 void	sb(t_stacks *stacks)
 {
+	stacks->op.total++;
+	stacks->op.sb++;
 	if (!(stacks->flags & NO_PRINT))
 		ft_printf("sb\n");
 	swap(stacks->b);
@@ -45,6 +49,8 @@ void	sb(t_stacks *stacks)
 
 void	ss(t_stacks *stacks)
 {
+	stacks->op.total++;
+	stacks->op.ss++;
 	if (!(stacks->flags & NO_PRINT))
 		ft_printf("ss\n");
 	swap(stacks->a);

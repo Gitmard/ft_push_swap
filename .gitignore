@@ -7,3 +7,5 @@ push_swap
 push_swap_debug
 .cache
 .compile_counter
+checker
+!/bonus_src/checker

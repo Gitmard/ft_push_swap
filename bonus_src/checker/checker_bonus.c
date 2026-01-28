@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:00:36 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 15:27:22 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/28 15:55:04 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,6 @@ int	raise_error_checker(int flag)
 	return (1);
 }
 
-int	comp_len(char *line, char *op)
-{
-	int	line_len;
-	int	op_len;
-
-	line_len = 0;
-	while (line[line_len] && line[line_len] != '\n')
-		line_len++;
-	op_len = 0;
-	while (op[op_len])
-		op_len++;
-	if (op_len > line_len)
-		return (op_len);
-	return (line_len);
-}
-
 int	execute_op(t_stacks *stacks, char *line, char **operations,
 		void (**f)(t_stacks *stacks))
 {
@@ -52,8 +36,7 @@ int	execute_op(t_stacks *stacks, char *line, char **operations,
 	i = 0;
 	while (i < 11)
 	{
-		if (ft_strncmp(line, operations[i],
-				comp_len(line, operations[i])) == 0)
+		if (ft_strcmp(line, operations[i]) == 0)
 		{
 			f[i](stacks);
 			break ;

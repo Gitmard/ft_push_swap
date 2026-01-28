@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:13:31 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 11:27:25 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/28 15:55:29 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ char	**get_op(void)
 	operations = malloc(sizeof(char *) * 11);
 	if (!operations)
 		return (NULL);
-	operations[0] = "pa";
-	operations[1] = "pb";
-	operations[2] = "ra";
-	operations[3] = "rb";
-	operations[4] = "rra";
-	operations[5] = "rrb";
-	operations[6] = "rr";
-	operations[7] = "rrr";
-	operations[8] = "sa";
-	operations[9] = "sb";
-	operations[10] = "ss";
+	operations[0] = "pa\n";
+	operations[1] = "pb\n";
+	operations[2] = "ra\n";
+	operations[3] = "rb\n";
+	operations[4] = "rra\n";
+	operations[5] = "rrb\n";
+	operations[6] = "rr\n";
+	operations[7] = "rrr\n";
+	operations[8] = "sa\n";
+	operations[9] = "sb\n";
+	operations[10] = "ss\n";
 	return (operations);
 }
 

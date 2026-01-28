@@ -6,11 +6,12 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:00:36 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 11:25:17 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:30:22 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+#include <stdio.h>
 
 int	raise_error_checker(int flag)
 {
@@ -28,11 +29,12 @@ int	raise_error_checker(int flag)
 }
 
 int	execute_op(t_stacks *stacks, char *line, char **operations,
-		void (**f)(t_stacks *stacks))
+		void (**f)(t_stacks *stacks), int c)
 {
 	int	i;
 
 	i = 0;
+	printf("%d: %s\n", c, line);
 	while (i < 11)
 	{
 		if (ft_strcmp(line, operations[i]) == 0)
@@ -43,7 +45,10 @@ int	execute_op(t_stacks *stacks, char *line, char **operations,
 		i++;
 	}
 	if (i == 11)
+	{
+		printf("Invalid operation: %s\n", line);
 		return (1);
+	}
 	return (0);
 }
 
@@ -54,6 +59,7 @@ int	handle_operations(t_stacks *stacks, char **operations,
 	int		ret;
 	int		gnl_code;
 
+	int c = 0;
 	ret = 0;
 	gnl_code = 1;
 	if (!operations || !f)
@@ -63,8 +69,9 @@ int	handle_operations(t_stacks *stacks, char **operations,
 	{
 		line = get_next_line(0, &gnl_code);
 		if (line)
-			ret = execute_op(stacks, line, operations, f);
+			ret = execute_op(stacks, line, operations, f, c);
 		free(line);
+		c++;
 	}
 	if (gnl_code)
 		ret = 1;

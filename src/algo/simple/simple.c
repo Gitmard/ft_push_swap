@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 19:32:42 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:24:45 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/28 18:17:42 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,7 @@ static void	reorder_stack(t_stacks *stacks, t_simple_metrics metrics)
 
 static void	combine_rotates(t_stacks *stacks, t_simple_metrics *metrics)
 {
-	if (ft_abs(metrics->cheapest_costs.a)
-		> ft_abs(metrics->cheapest_costs.b))
+	if (ft_abs(metrics->cheapest_costs.a) > ft_abs(metrics->cheapest_costs.b))
 	{
 		while (metrics->cheapest_costs.b != 0)
 		{
@@ -104,7 +103,31 @@ static void	push_cheapest(t_stacks *stacks, t_simple_metrics *metrics)
 	}
 	pa(stacks);
 	update_metrics(metrics, metrics->cheapest_costs, stacks->a->head,
-		UPDATE_MAX);
+			UPDATE_MAX);
+}
+
+void	pb_all(t_stacks *stacks)
+{
+	uint32_t	middle_window[2];
+	t_list		*current;
+	size_t		i;
+	// t_list		*next;
+
+	middle_window[0] = stacks->combined_sizes / 4;
+	middle_window[1] = 3 * stacks->combined_sizes / 4;
+	i = 0;
+	while (i < stacks->combined_sizes)
+	{
+		current = stacks->a->head;
+		if (current->target_index < middle_window[0]
+			|| current->target_index > middle_window[1])
+				pb(stacks);
+		else
+			ra(stacks);
+		i++;
+	}
+	while (stacks->a->size)
+		pb(stacks);
 }
 
 void	simple(t_stacks *stacks)
@@ -114,8 +137,7 @@ void	simple(t_stacks *stacks)
 	t_costs				current_costs;
 	size_t				i;
 
-	while (stacks->a->size)
-		pb(stacks);
+	pb_all(stacks);
 	init_metrics(&metrics, true);
 	while (stacks->b->size)
 	{

@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   binary_search.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:48:50 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/27 13:44:51 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/27 13:54:18 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#include "utils_includes.h"
 
-# include "list.h"
-# include "hash_set.h"
-# include "mem.h"
-# include "string.h"
-# include "stack.h"
-# include "math.h"
-# include "ft_printf.h"
-# include "utils.h"
-# include "get_next_line.h"
+int	binary_search(int value, int *tab, int tab_len)
+{
+	int	left;
+	int	right;
+	int	middle;
 
-#endif
+	left = 0;
+	right = tab_len - 1;
+	while (left <= right)
+	{
+		middle = left + (int)((right - left) / 2);
+		if (tab[middle] < value)
+			left++;
+		else if (tab[middle] > value)
+			right--;
+		else
+			return (middle);
+	}
+	return (-1);
+}

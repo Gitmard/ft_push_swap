@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   hash_set_includes.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:48:50 by smenard          ###   ########.fr       */
+/*   Created: 2025/12/16 10:41:47 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/17 13:14:10 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#ifndef HASH_SET_INCLUDES_H
+# define HASH_SET_INCLUDES_H
 
-# include "list.h"
-# include "hash_set.h"
+# include <stdlib.h>
+# include <stdint.h>
+# include <stdbool.h>
 # include "mem.h"
-# include "string.h"
-# include "stack.h"
-# include "math.h"
-# include "ft_printf.h"
-# include "utils.h"
-# include "get_next_line.h"
 
 #endif

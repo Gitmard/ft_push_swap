@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:48:50 by smenard          ###   ########.fr       */
+/*   Created: 2025/12/16 14:27:19 by smenard           #+#    #+#             */
+/*   Updated: 2025/12/18 14:55:29 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#include "list.h"
 
-# include "list.h"
-# include "hash_set.h"
-# include "mem.h"
-# include "string.h"
-# include "stack.h"
-# include "math.h"
-# include "ft_printf.h"
-# include "utils.h"
-# include "get_next_line.h"
-
-#endif
+void	*ft_lstclear(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	ft_lstclear(lst->next);
+	free(lst);
+	return (NULL);
+}

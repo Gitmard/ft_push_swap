@@ -28,7 +28,7 @@ jobs:
         id: norminette
         shell: bash
         run: |
-          norminette | tee norminette.log
+          norminette src | tee norminette.log
           if grep -qE "Error|Error!" norminette.log; then
             echo "status=failed" >> $GITHUB_OUTPUT
             exit 1

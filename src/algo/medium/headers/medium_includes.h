@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   medium_includes.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:48:50 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/06 11:01:06 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/27 13:46:13 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#ifndef MEDIUM_INCLUDES_H
+# define MEDIUM_INCLUDES_H
 
-# include "list.h"
-# include "hash_set.h"
-# include "mem.h"
-# include "string.h"
-# include "stack.h"
-# include "math.h"
-# include "ft_printf.h"
-# include "utils.h"
-# include "get_next_line.h"
+# include "lib.h"
+# include "instructions.h"
 
 #endif

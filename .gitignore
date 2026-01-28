@@ -3,3 +3,7 @@
 *.a
 *.d
 .vscode
+push_swap
+push_swap_debug
+checker
+.cache

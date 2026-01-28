@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:12:55 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:48:50 by smenard          ###   ########.fr       */
+/*   Created: 2026/01/27 14:37:23 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/28 11:09:01 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#include "algo_includes.h"
+#include "algo.h"
 
-# include "list.h"
-# include "hash_set.h"
-# include "mem.h"
-# include "string.h"
-# include "stack.h"
-# include "math.h"
-# include "ft_printf.h"
-# include "utils.h"
-# include "get_next_line.h"
+int	adaptive(t_stacks *stacks, float disorder)
+{
+	int			res;
 
-#endif
+	res = 0;
+	if (disorder < 0.2)
+		simple(stacks);
+	else if (disorder < 0.5)
+		res = medium(stacks);
+	else
+	{
+		ft_printf("ERROR: complex not implemented.\n");
+		res = -1;
+	}
+	return (res);
+}

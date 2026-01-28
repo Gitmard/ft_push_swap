@@ -371,7 +371,7 @@ $(NAME_BENCH): $(BENCH_OBJ)
 
 clean:
 	@echo "\033[1;31m[CLEAN]\033[0m Removing object files and dependencies..."
-	@rm -rf $(DFILES) $(ALL_OBJ)$(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO) $(NAME_BENCH)
+	@rm -rf $(DFILES) $(ALL_OBJ) $(NAME_INSTRUCTIONS) $(NAME_PARSE) $(NAME_LIB) $(NAME_ALGO) $(NAME_BENCH)
 	@echo "\033[1;32m[DONE]\033[0m Clean completed!"
 
 fclean: clean

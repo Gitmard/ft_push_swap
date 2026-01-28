@@ -6,11 +6,12 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:00:36 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 11:25:17 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/28 15:55:04 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+#include <stdio.h>
 
 int	raise_error_checker(int flag)
 {
@@ -95,5 +96,6 @@ int	main(int ac, char **av)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	free_stacks(stacks, FREE_STACKS_ALL);
 	return (0);
 }

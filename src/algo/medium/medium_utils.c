@@ -6,13 +6,14 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:15:25 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 11:32:47 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/28 12:54:47 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "medium_defines.h"
 
-void	update_window(uint32_t *w_start, uint32_t w_size, bool *poped, size_t size)
+void	update_window(uint32_t *w_start, uint32_t w_size,
+		bool *poped, size_t size)
 {
 	while ((size_t)((*w_start) + w_size + 1) < size && poped[(*w_start)])
 		(*w_start)++;
@@ -26,7 +27,8 @@ void	update_stacks(uint32_t w_start, uint32_t w_size, t_stacks *stacks)
 		rb(stacks);
 }
 
-void	ensure_w_size_is_correct(uint32_t *w_size, uint32_t w_start, uint32_t full_size)
+void	ensure_w_size_is_correct(uint32_t *w_size, uint32_t w_start,
+		uint32_t full_size)
 {
 	if (w_start + *w_size >= full_size)
 		*w_size = full_size - w_start - 1;

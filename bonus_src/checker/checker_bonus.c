@@ -6,11 +6,12 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:00:36 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 11:25:17 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/28 15:27:22 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+#include <stdio.h>
 
 int	raise_error_checker(int flag)
 {
@@ -27,6 +28,22 @@ int	raise_error_checker(int flag)
 	return (1);
 }
 
+int	comp_len(char *line, char *op)
+{
+	int	line_len;
+	int	op_len;
+
+	line_len = 0;
+	while (line[line_len] && line[line_len] != '\n')
+		line_len++;
+	op_len = 0;
+	while (op[op_len])
+		op_len++;
+	if (op_len > line_len)
+		return (op_len);
+	return (line_len);
+}
+
 int	execute_op(t_stacks *stacks, char *line, char **operations,
 		void (**f)(t_stacks *stacks))
 {
@@ -35,7 +52,8 @@ int	execute_op(t_stacks *stacks, char *line, char **operations,
 	i = 0;
 	while (i < 11)
 	{
-		if (ft_strcmp(line, operations[i]) == 0)
+		if (ft_strncmp(line, operations[i],
+				comp_len(line, operations[i])) == 0)
 		{
 			f[i](stacks);
 			break ;
@@ -95,5 +113,6 @@ int	main(int ac, char **av)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	free_stacks(stacks, FREE_STACKS_ALL);
 	return (0);
 }

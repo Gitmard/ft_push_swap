@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 15:52:21 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 11:30:30 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/28 15:15:38 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ int	read_buffer(char buffer[BUFFER_SIZE], t_stack_gnl **stack)
 		i++;
 	if (i == BUFFER_SIZE)
 		return (0);
-	while (i < BUFFER_SIZE && buffer[i] && buffer[i] != '\n')
+	while (i < BUFFER_SIZE && buffer[i])
 	{
 		if (stack_append(stack, buffer[i]) == -1)
 			return (-1);
+		if (buffer[i] == '\n')
+		{
+			buffer[i] = '\0';
+			return (1);
+		}
 		buffer[i] = '\0';
 		i++;
 	}
 	if (i < BUFFER_SIZE)
-	{
-		buffer[i] = '\0';
-		if (i < BUFFER_SIZE - 1 && buffer[i + 1] == '\0')
-			return (1);
-		return (0);
-	}
+		return (1);
 	return (2);
 }
 

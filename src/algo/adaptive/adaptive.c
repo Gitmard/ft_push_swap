@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 14:37:23 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/28 11:09:01 by smenard          ###   ########.fr       */
+/*   Updated: 2026/01/29 11:16:36 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ int	adaptive(t_stacks *stacks, float disorder)
 	else if (disorder < 0.5)
 		res = medium(stacks);
 	else
-	{
-		ft_printf("ERROR: complex not implemented.\n");
-		res = -1;
-	}
+		complex(stacks);
 	return (res);
 }

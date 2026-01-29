@@ -6,7 +6,7 @@
 /*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:59:58 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 13:51:12 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/28 17:28:36 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 void	rotate_a(t_stacks *stacks, int rotate_count)
 {
-	void (*f)(t_stacks *stacks);
+	void	(*f)(t_stacks *stacks);
 
+	if ((size_t)rotate_count == stacks->a->size)
+		return ;
 	f = rra;
-	if (rotate_count > stacks->a->size / 2)
+	if ((size_t)rotate_count > stacks->a->size / 2)
 	{
-		rotate_count -= stacks->a->size / 2;
+		rotate_count = stacks->a->size - rotate_count;
 		f = ra;
 	}
 	while (rotate_count > 0)
+	{
 		f(stacks);
+		rotate_count--;
+	}
 }
 
 void	push_in_b(t_stacks *stacks, int curr_bit)
@@ -63,7 +68,7 @@ void	push_in_a(t_stacks *stacks, int curr_bit, int max_bits)
 	while (to_push > 0)
 	{
 		if (!(stacks->b->head->target_index & bit)
-			&& curr_bit > max_bits)
+			&& curr_bit < max_bits - 1)
 			rb(stacks);
 		else
 			pa(stacks);

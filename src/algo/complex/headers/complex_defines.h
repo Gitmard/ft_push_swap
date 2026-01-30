@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.h                                             :+:      :+:    :+:   */
+/*   complex_defines.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/22 19:31:16 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/28 16:36:16 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2026/01/28 13:41:45 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/28 13:43:48 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALGO_H
-# define ALGO_H
+#ifndef COMPLEX_DEFINES_H
+# define COMPLEX_DEFINES_H
 
-# include "simple.h"
-# include "medium.h"
-# include "complex.h"
-# include "adaptive.h"
+# include "complex_includes.h"
+
+int	get_max_push(t_stacks *stacks, int bit);
+int	get_max_bits(t_stacks *stacks);
 
 #endif

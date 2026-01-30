@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.h                                             :+:      :+:    :+:   */
+/*   complex_includes.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/22 19:31:16 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/28 16:36:16 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2026/01/28 13:42:49 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/28 13:43:13 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALGO_H
-# define ALGO_H
+#ifndef COMPLEX_INCLUDES_H
+# define COMPLEX_INCLUDES_H
 
-# include "simple.h"
-# include "medium.h"
-# include "complex.h"
-# include "adaptive.h"
+# include "lib.h"
+# include "instructions.h"
 
 #endif

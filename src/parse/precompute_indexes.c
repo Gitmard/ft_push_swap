@@ -21,14 +21,12 @@ static int	precompute_free_return(int *sorted, int value)
 int	precompute_indexes(t_stacks *stacks)
 {
 	int		*sorted;
-	size_t	i;
 	t_list	*current;
 	int		current_index;
 
 	sorted = create_sorted_array(stacks);
 	if (!sorted)
 		return (ERROR);
-	i = 0;
 	current = stacks->a->head;
 	while (current)
 	{

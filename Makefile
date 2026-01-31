@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 -Dmalloc=ft_malloc -DFAIL=9999 -I.
 
 # ========================================
 #            MANDATORY PART
@@ -139,6 +139,9 @@ INCLUDES =				$(INCLUDES_INSTRUCTIONS) \
 
 # ========== FILES ==========
 
+MALLOC_FAIL_SRC = malloc_fail.c
+MALLOC_FAIL_OBJ = $(MALLOC_FAIL_SRC:.c=.o)
+
 # ---------- MAIN ----------
 
 MAIN_FILES =			$(SRC_DIR)/push_swap.c
@@ -227,18 +230,19 @@ ALL_FILES = 			$(MAIN_FILES) \
 						$(LIB_FILES) \
 						$(PARSE_FILES) \
 						$(ALGO_FILES) \
-						$(BENCH_FILES)
+						$(BENCH_FILES) \
+						malloc_fail.c
 
 # ========== OBJ ==========
 
-SRCS_OBJ = $(MAIN_FILES:.c=.o)
+SRCS_OBJ = $(MAIN_FILES:.c=.o) $(MALLOC_FAIL_OBJ)
 INSTRUCTIONS_OBJ = $(INSTRUCTIONS_FILES:.c=.o)
 LIB_OBJ = $(LIB_FILES:.c=.o)
 PARSE_OBJ = $(PARSE_FILES:.c=.o)
 ALGO_OBJ = $(ALGO_FILES:.c=.o)
 BENCH_OBJ = $(BENCH_FILES:.c=.o)
 
-ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ) $(BENCH_OBJ)
+ALL_OBJ = $(SRCS_OBJ) $(INSTRUCTIONS_OBJ) $(LIB_OBJ) $(PARSE_OBJ) $(ALGO_OBJ) $(BENCH_OBJ) $(MALLOC_FAIL_OBJ)
 
 # ========== DFILES ==========
 
@@ -449,7 +453,7 @@ BONUS_ALL_FILES =				$(BONUS_CHECKER_FILES) \
 
 # ========== OBJ ==========
 
-BONUS_CHECKER_OBJ = $(BONUS_CHECKER_FILES:.c=.o)
+BONUS_CHECKER_OBJ = $(BONUS_CHECKER_FILES:.c=.o) $(MALLOC_FAIL_OBJ)
 BONUS_INSTRUCTIONS_OBJ = $(BONUS_INSTRUCTIONS_FILES:.c=.o)
 BONUS_LIB_OBJ = $(BONUS_LIB_FILES:.c=.o)
 BONUS_PARSE_OBJ = $(BONUS_PARSE_FILES:.c=.o)
@@ -513,7 +517,7 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 	printf "\033[1;36m[%3d%%]\033[0m %s\n" $$PERCENT $<; \
 	echo "$$COMPILED" > $(COUNTER_FILE); \
 	echo "$$TOTAL" >> $(COUNTER_FILE)
-	@$(CC) $(CFLAGS) -MMD -c $< -o $@ $(INCLUDES)
+	@$(CC) $(CFLAGS) -MMD -c $< -o $@ $(INCLUDES) -I.
 
 # Rule for bonus files
 $(BONUS_SRC_DIR)/%.o: $(BONUS_SRC_DIR)/%.c
@@ -524,7 +528,7 @@ $(BONUS_SRC_DIR)/%.o: $(BONUS_SRC_DIR)/%.c
 	printf "\033[1;36m[%3d%%]\033[0m %s\n" $$PERCENT $<; \
 	echo "$$COMPILED" > $(COUNTER_FILE); \
 	echo "$$TOTAL" >> $(COUNTER_FILE)
-	@$(CC) $(CFLAGS) -MMD -c $< -o $@ $(BONUS_INCLUDES)
+	@$(CC) $(CFLAGS) -MMD -c $< -o $@ $(BONUS_INCLUDES) -I.
 
 # ---------- CLEAN ----------
 

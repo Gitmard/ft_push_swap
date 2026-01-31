@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 15:52:21 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 15:15:38 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/31 16:51:28 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ char	*free_and_return(char *return_value, t_stack_gnl *stack,
 	t_stack_gnl	*next;
 
 	*gnl_code = 0;
+	if (stack && !return_value)
+		*gnl_code = 1;
 	if (res == -1)
-		*gnl_code = -1;
+		*gnl_code = 1;
 	current = stack;
 	while (current)
 	{

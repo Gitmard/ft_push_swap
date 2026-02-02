@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:00:36 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/02 15:17:22 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:06:29 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int	main(int ac, char **av)
 		free_stacks(stacks, FREE_STACKS_ALL);
 		return (raise_error_checker(NO_DRAIN));
 	}
+	printf("WEE WEE\n");
 	if (is_sorted(stacks))
 		write(1, "OK\n", 3);
 	else

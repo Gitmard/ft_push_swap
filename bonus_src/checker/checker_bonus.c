@@ -6,13 +6,13 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:00:36 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/02 17:04:31 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:21:46 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-int	raise_error_checker()
+static int	raise_error_checker(void)
 {
 	char	buffer[256];
 	int		rd_char;
@@ -24,7 +24,7 @@ int	raise_error_checker()
 	return (1);
 }
 
-int	execute_op(t_stacks *stacks, char *line, char **operations,
+static int	execute_op(t_stacks *stacks, char *line, char **operations,
 		void (**f)(t_stacks *stacks))
 {
 	int	i;
@@ -44,7 +44,7 @@ int	execute_op(t_stacks *stacks, char *line, char **operations,
 	return (0);
 }
 
-int	handle_operations(t_stacks *stacks, char **operations,
+static int	handle_operations(t_stacks *stacks, char **operations,
 		void (**f)(t_stacks *stacks))
 {
 	char	*line;

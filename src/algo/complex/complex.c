@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:59:58 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 17:28:36 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/02/02 17:29:26 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "complex_defines.h"
 
-void	rotate_a(t_stacks *stacks, int rotate_count)
+static void	rotate_a(t_stacks *stacks, int rotate_count)
 {
 	void	(*f)(t_stacks *stacks);
 
@@ -31,7 +31,7 @@ void	rotate_a(t_stacks *stacks, int rotate_count)
 	}
 }
 
-void	push_in_b(t_stacks *stacks, int curr_bit)
+static void	push_in_b(t_stacks *stacks, int curr_bit)
 {
 	int	bit;
 	int	max_push;
@@ -58,7 +58,7 @@ void	push_in_b(t_stacks *stacks, int curr_bit)
 	rotate_a(stacks, rotate_count);
 }
 
-void	push_in_a(t_stacks *stacks, int curr_bit, int max_bits)
+static void	push_in_a(t_stacks *stacks, int curr_bit, int max_bits)
 {
 	int	to_push;
 	int	bit;

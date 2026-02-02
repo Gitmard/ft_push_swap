@@ -6,13 +6,13 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:18:20 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/02 15:51:47 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:25:18 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_defines.h"
 
-int	count_words(char *arg)
+static int	count_words(char *arg)
 {
 	bool	flag;
 	int		count;
@@ -35,7 +35,7 @@ int	count_words(char *arg)
 	return (count);
 }
 
-int	count_full_words(int ac, char **av)
+static int	count_full_words(int ac, char **av)
 {
 	int	words_count;
 	int	i;
@@ -50,7 +50,7 @@ int	count_full_words(int ac, char **av)
 	return (words_count);
 }
 
-char	*create_word(char *str)
+static char	*create_word(char *str)
 {
 	char	*word;
 	int		len;
@@ -72,7 +72,7 @@ char	*create_word(char *str)
 	return (word);
 }
 
-int	create_split(char **split, int *j, char *arg, int *n_count)
+static int	create_split(char **split, int *j, char *arg, int *n_count)
 {
 	bool	flag;
 	int		i;

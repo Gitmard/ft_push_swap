@@ -157,16 +157,34 @@ AI was used through Copilot during code reviews and for the creation of this REA
 ## Algorithmic Strategies
 The push_swap project implements three different algorithmic strategies. We adapted popular sorting algorithms to work within the push_swap constraints.
 
-### Simple Strategy - Turk Sort
-The simple strategy is an adaptation of the Turk sort algorithm. The approach is straightforward: first, we push the entire stack a into stack b. Then, we loop through the elements to find the cheapest element to insert at the correct position in stack a. This continues until stack b is empty.
+### Simple Strategy - Greedy Insertion Sort
 
-This results in a worst-case scenario of O(n²) instructions, since theoretically, for each element we push from b to a, we might need to rotate the entire stack a.
+The simple strategy uses a **greedy cost-based approach** to progressively build a sorted stack.
+The algorithm begins by pushing all elements from stack **A** to stack **B**. Then, it iteratively reinserts elements from B back into A at their correct sorted position.
 
-> Note: The push_swap project limits us to a very specific set of instructions. When trying to insert an element at a particular position, we must rotate stack a until the element that should be adjacent to our inserted element is at the top of the stack.
+For each iteration:
+- The algorithm evaluates every element in stack B
+- For each element, it calculates the cost to insert it into its correct position in stack A
+- The cost includes: rotations needed in stack B to bring the element to the top, rotations needed in stack A to position it correctly, and optimizations from combined rotations (`rr`/`rrr`)
+- The element with the lowest total cost is selected and pushed to stack A
+
+The correct position in A is determined by finding the slot where the element fits between its predecessor and successor values. Edge cases (minimum/maximum values) are handled specially to maintain circular ordering.
+
+Once all elements are back in stack A, a final reordering step rotates the stack to place the minimum value at the top.
+
+This greedy approach results in an average complexity of **O(n²)**, as each element may require evaluating and rotating through the entire stack.
+
+#### Why This Strategy?
+
+The greedy insertion sort is particularly well-suited for the push_swap constraints. A naive insertion sort implementation would generate **O(n³) instructions**: for each of the n elements, finding the insertion position requires O(n) comparisons, and each insertion requires O(n) rotations.
+
+By leveraging the cost-based greedy selection and the dual-rotation optimizations (`rr`/`rrr`), our implementation reduces this to **O(n²) instructions**. The key insight is that we can minimize the total number of moves by always choosing the cheapest element to insert next, rather than processing elements in a fixed order.
+
+This makes it an excellent baseline strategy for small to medium-sized inputs where the overhead of more complex algorithms outweighs their theoretical advantages.
 
 ### Medium Strategy - Bucket Sort
 
-The medium strategy uses a **bucket-based approach** relying on each element’s `target_index`.  
+The medium strategy uses a **bucket-based approach** relying on each element's `target_index`.
 The idea is to split the index range into sliding windows of size √n and progressively move elements from stack **A** to stack **B**.
 
 For each window:
@@ -179,9 +197,13 @@ Once all elements are pushed into B, they are reinserted into A in decreasing `t
 
 This approach significantly reduces unnecessary rotations compared to the simple strategy and achieves an average complexity of **O(n√n)**.
 
+#### Why This Strategy?
+
+The bucket sort approach strikes a balance between simplicity and efficiency. By processing elements in windows of size √n, we reduce the number of full stack traversals while maintaining predictable performance. This strategy is ideal for medium-sized inputs (roughly 100-500 elements) where the simple strategy becomes too costly, but the overhead of radix sort is not yet justified.
+
 ### Complex Strategy - Radix Sort
 
-The complex strategy is based on a **binary radix sort** applied to the `target_index` of each element.  
+The complex strategy is based on a **binary radix sort** applied to the `target_index` of each element.
 The algorithm processes the stack **bit by bit**, starting from the least significant bit.
 
 For each bit position:
@@ -195,8 +217,12 @@ After processing one bit:
 - Elements are pushed back from B to A
 - During reinsertion, elements are optionally rotated in B based on the next bit to improve locality
 
-The number of iterations is bounded by the number of bits needed to represent the largest index.  
+The number of iterations is bounded by the number of bits needed to represent the largest index.
 This results in a stable and efficient sorting process with a time complexity of **O(n log n)**, well suited for large input sizes.
+
+#### Why This Strategy?
+
+Radix sort is the most efficient strategy for large inputs, providing optimal O(n log n) performance. By working with the binary representation of `target_index` values, we ensure predictable and consistent performance regardless of the initial ordering of elements. This strategy excels when dealing with inputs of 500+ elements where its logarithmic complexity provides significant advantages over simpler approaches.
 
 
 ## Checker

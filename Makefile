@@ -26,7 +26,6 @@ LIB_PRINTF_DIR = printf
 LIB_STACK_DIR = stack
 LIB_STRING_DIR = string
 LIB_UTILS_DIR = utils
-LIB_GNL_DIR = get_next_line
 LIB_MATH_DIR = math
 
 # ---------- PARSE ----------
@@ -95,7 +94,6 @@ INCLUDES_LIB =			$(INCLUDES_LIB_MAIN) \
 						$(INCLUDES_LIB_STACK) \
 						$(INCLUDES_LIB_STRING) \
 						$(INCLUDES_LIB_UTILS) \
-						$(INCLUDES_LIB_GNL) \
 						$(INCLUDES_LIB_MATH)
 
 # ---------- PARSE ----------
@@ -180,9 +178,6 @@ LIB_UTILS_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/binary_search.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/check_sort.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/print_stack.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/sort.c
-
-LIB_GNL_FILES =			./$(SRC_DIR)/$(LIB_DIR)/$(LIB_GNL_DIR)/get_next_line.c \
-						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_GNL_DIR)/get_next_line_utils.c
 
 LIB_MATH_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_MATH_DIR)/math.c
 

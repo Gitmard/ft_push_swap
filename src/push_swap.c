@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/02 15:46:14 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:14:25 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	raise_error(void)
 {
-	ft_printf("ERROR\n");
+	ft_putstr_stderr("Error\n");
 	return (ERROR);
 }
 

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:15:23 by smenard           #+#    #+#             */
-/*   Updated: 2026/02/02 16:16:25 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:22:12 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static bool	swap(t_stack *stack)
 	t_list	*swap_temp2;
 
 	if (stack->size <= 1)
-		return false;
+		return (false);
 	swap_temp1 = ft_stackremove_head(stack);
 	swap_temp2 = ft_stackremove_head(stack);
 	ft_stackadd_head(stack, swap_temp1);

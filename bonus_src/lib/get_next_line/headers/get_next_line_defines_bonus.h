@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_defines.h                            :+:      :+:    :+:   */
+/*   get_next_line_defines_bonus.h                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:32:30 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/13 13:37:25 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/28 11:29:53 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_DEFINES_H
-# define GET_NEXT_LINE_DEFINES_H
+#ifndef GET_NEXT_LINE_DEFINES_BONUS_H
+# define GET_NEXT_LINE_DEFINES_BONUS_H
 
-# include "get_next_line_includes.h"
+# include "get_next_line_includes_bonus.h"
 
 typedef struct s_stack_gnl
 {

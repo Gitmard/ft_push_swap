@@ -5,5 +5,8 @@
 .vscode
 push_swap
 push_swap_debug
-checker
 .cache
+.compile_counter
+checker
+!/bonus_src/checker
+push_swap_visualizer

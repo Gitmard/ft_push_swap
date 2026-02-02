@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   list_utils_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 14:01:04 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/13 13:43:07 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2026/01/08 17:21:08 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/28 11:34:34 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "list_includes_bonus.h"
 
-# include "parse.h"
-# include "instructions.h"
-# include "lib.h"
-
-void	(**get_functions(void))(t_stacks *stacks);
-char	**get_op(void);
-
-# define NO_DRAIN 0
-# define DRAIN_STDIN 1
-
-#endif
+t_list	*reset_link(t_list *link)
+{
+	if (!link)
+		return (NULL);
+	link->prev = NULL;
+	link->next = NULL;
+	return (link);
+}

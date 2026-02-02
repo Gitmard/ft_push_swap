@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:03:29 by vquetier          #+#    #+#             */
-/*   Updated: 2025/12/18 16:11:48 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 15:13:22 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_set	*create_set(uint32_t stack_size)
 	t_set		*set;
 	uint32_t	lowest_size;
 
-	set = malloc(sizeof(t_set));
+	set = ft_calloc(1, sizeof(t_set));
 	if (!set)
 		return (NULL);
 	lowest_size = stack_size + (stack_size + 1) / 2;

@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   instructions_includes_bonus.h                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 14:33:38 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/13 13:52:10 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2025/12/17 15:19:06 by vquetier          #+#    #+#             */
+/*   Updated: 2026/01/28 11:27:37 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef INSTRUCTIONS_INCLUDES_BONUS_H
+# define INSTRUCTIONS_INCLUDES_BONUS_H
 
-char	*get_next_line(int fd, int *err_code);
+# include <stdbool.h>
+# include "lib_bonus.h"
 
 #endif

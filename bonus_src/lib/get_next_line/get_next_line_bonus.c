@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 15:52:21 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/13 16:39:34 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/31 16:51:28 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_defines.h"
+#include "get_next_line_defines_bonus.h"
 
 int	read_buffer(char buffer[BUFFER_SIZE], t_stack_gnl **stack)
 {
@@ -21,20 +21,20 @@ int	read_buffer(char buffer[BUFFER_SIZE], t_stack_gnl **stack)
 		i++;
 	if (i == BUFFER_SIZE)
 		return (0);
-	while (i < BUFFER_SIZE && buffer[i] && buffer[i] != '\n')
+	while (i < BUFFER_SIZE && buffer[i])
 	{
 		if (stack_append(stack, buffer[i]) == -1)
 			return (-1);
+		if (buffer[i] == '\n')
+		{
+			buffer[i] = '\0';
+			return (1);
+		}
 		buffer[i] = '\0';
 		i++;
 	}
 	if (i < BUFFER_SIZE)
-	{
-		buffer[i] = '\0';
-		if (i < BUFFER_SIZE - 1 && buffer[i + 1] == '\0')
-			return (1);
-		return (0);
-	}
+		return (1);
 	return (2);
 }
 
@@ -45,8 +45,10 @@ char	*free_and_return(char *return_value, t_stack_gnl *stack,
 	t_stack_gnl	*next;
 
 	*gnl_code = 0;
+	if (stack && !return_value)
+		*gnl_code = 1;
 	if (res == -1)
-		*gnl_code = -1;
+		*gnl_code = 1;
 	current = stack;
 	while (current)
 	{

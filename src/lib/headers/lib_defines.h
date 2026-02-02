@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:18:22 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 13:24:03 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 11:25:18 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define LIB_DEFINES_H
 
 # include "lib_includes.h"
-
-# define NO_PRINT 32
 
 typedef struct s_op
 {

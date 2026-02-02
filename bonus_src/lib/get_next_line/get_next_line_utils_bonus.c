@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 15:57:10 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/13 13:37:45 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/01/28 14:54:34 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_defines.h"
+#include "get_next_line_defines_bonus.h"
 
 t_stack_gnl	*create_stack_elem(t_stack_gnl *next)
 {

@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_includes.h                           :+:      :+:    :+:   */
+/*   string_includes_bonus.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 14:31:39 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/13 13:36:54 by vquetier         ###   ########lyon.fr   */
+/*   Created: 2025/12/18 13:40:12 by smenard           #+#    #+#             */
+/*   Updated: 2026/01/28 11:38:13 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_INCLUDES_H
-# define GET_NEXT_LINE_INCLUDES_H
+#ifndef STRING_INCLUDES_BONUS_H
+# define STRING_INCLUDES_BONUS_H
 
 # include <stdlib.h>
-# include <stdint.h>
-# include <unistd.h>
-# include <stdbool.h>
 
-#endif 
+#endif

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:18:22 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/28 11:33:17 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 11:25:00 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define LIB_DEFINES_BONUS_H
 
 # include "lib_includes_bonus.h"
-
-# define NO_PRINT 32
 
 typedef struct s_op
 {

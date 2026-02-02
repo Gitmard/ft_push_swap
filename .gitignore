@@ -9,3 +9,4 @@ push_swap_debug
 .compile_counter
 checker
 !/bonus_src/checker
+push_swap_visualizer

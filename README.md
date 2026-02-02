@@ -101,7 +101,6 @@ Here is the module structure to help you navigate the codebase:
     ├── bench        # Benchmark feature sources
     ├── instructions # Instruction implementation sources
     ├── lib          # Internal library
-    │   ├── get_next_line # Line-by-line file reader
     │   ├── hash_set      # Custom hash_set implementation, definitely worth a look
     │   ├── list          # Linked list utility functions
     │   ├── math          # Simple math functions (min, max, sqrt)

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:18:20 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/02 15:12:45 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 15:53:18 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*create_word(char *str)
 	len = 0;
 	while (str[len] && str[len] != ' ')
 		len++;
-	word = ft_calloc(sizeof(char), (len + 1));
+	word = ft_calloc((len + 1), sizeof(char));
 	if (!word)
 		return (NULL);
 	i = 0;
@@ -106,7 +106,7 @@ int	normalise_args(int *ac, char ***av, int *n_count)
 	int		j;
 
 	words_count = count_full_words(*ac, *av);
-	split = ft_calloc(sizeof(char *), words_count);
+	split = ft_calloc(words_count, sizeof(char *));
 	if (!split)
 		return (1);
 	split[words_count - 1] = NULL;

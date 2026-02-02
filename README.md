@@ -165,10 +165,39 @@ This results in a worst-case scenario of O(n²) instructions, since theoreticall
 > Note: The push_swap project limits us to a very specific set of instructions. When trying to insert an element at a particular position, we must rotate stack a until the element that should be adjacent to our inserted element is at the top of the stack.
 
 ### Medium Strategy - Bucket Sort
-> Needs completion from vquetier
+
+The medium strategy uses a **bucket-based approach** relying on each element’s `target_index`.  
+The idea is to split the index range into sliding windows of size √n and progressively move elements from stack **A** to stack **B**.
+
+For each window:
+- The algorithm locates the closest element in stack A whose `target_index` is inside the current window
+- It rotates in the optimal direction (`ra` or `rra`) to bring that element to the top
+- The element is pushed to stack B
+- Elements in the lower half of the window are rotated inside B to partially maintain order
+
+Once all elements are pushed into B, they are reinserted into A in decreasing `target_index` order by rotating B in the shortest direction and using `pa`.
+
+This approach significantly reduces unnecessary rotations compared to the simple strategy and achieves an average complexity of **O(n√n)**.
 
 ### Complex Strategy - Radix Sort
-> Needs completion from vquetier
+
+The complex strategy is based on a **binary radix sort** applied to the `target_index` of each element.  
+The algorithm processes the stack **bit by bit**, starting from the least significant bit.
+
+For each bit position:
+- Elements in stack A are inspected
+- If the current bit is `0`, the element is pushed to stack B
+- If the bit is `1`, stack A is rotated
+- The number of pushes is precomputed to avoid unnecessary full passes
+
+After processing one bit:
+- Stack A is realigned to cancel extra rotations
+- Elements are pushed back from B to A
+- During reinsertion, elements are optionally rotated in B based on the next bit to improve locality
+
+The number of iterations is bounded by the number of bits needed to represent the largest index.  
+This results in a stable and efficient sorting process with a time complexity of **O(n log n)**, well suited for large input sizes.
+
 
 ## Checker
 The checker is a bonus program that takes the same arguments as push_swap, reads instructions from standard input, and verifies that their execution results in a sorted list in stack a. It is intended to be used as follows:

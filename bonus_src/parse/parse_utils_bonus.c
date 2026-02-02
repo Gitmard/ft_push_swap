@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 14:23:52 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 11:42:45 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 15:13:14 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ t_stacks	*create_stacks(void)
 		return (NULL);
 	stacks->flags = 0;
 	stacks->combined_sizes = 0;
-	stacks->a = malloc(sizeof(t_stack));
+	stacks->a = ft_calloc(1, sizeof(t_stack));
 	if (!stacks->a)
 		return (free_stacks(stacks, FREE_STACKS));
-	stacks->b = malloc(sizeof(t_stack));
+	stacks->b = ft_calloc(1, sizeof(t_stack));
 	if (!stacks->b)
 		return (free_stacks(stacks, FREE_STACKS | FREE_A));
 	stacks->b->head = NULL;

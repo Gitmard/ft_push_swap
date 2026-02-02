@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:06:22 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/12 10:28:53 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 15:13:44 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_string	ft_strdup(t_string str)
 
 	len = ft_strlen(str);
 	i = 0;
-	dup = malloc((len + 1) * sizeof(char));
+	dup = ft_calloc((len + 1), sizeof(char));
 	if (!dup)
 		return (NULL);
 	while (str[i])

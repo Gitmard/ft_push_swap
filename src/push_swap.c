@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 16:35:47 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/02/02 15:46:14 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static float	calculate_disorder(t_stack *a)
 			disorder++;
 		current = current->next;
 	}
-	return (disorder / (a->size - 1));
+	return (disorder / (float)(a->size - 1));
 }
 
 static int	handle_stacks(t_stacks *stacks)

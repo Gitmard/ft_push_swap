@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:43:47 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 13:54:32 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 15:14:06 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int	*create_sorted_array(t_stacks *stacks)
 	int		i;
 
 	iter = stacks->a->head;
-	tab = malloc(sizeof(int) * stacks->a->size);
-	temp_tab = malloc(sizeof(int) * stacks->a->size);
+	tab = ft_calloc(stacks->a->size, sizeof(int));
+	temp_tab = ft_calloc(stacks->a->size, sizeof(int));
 	if (!tab || !temp_tab)
 	{
 		free(tab);

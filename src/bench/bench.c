@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 15:16:39 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/14 14:58:41 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/02/02 15:44:26 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ void	print_disorder(float disorder)
 	int		power;
 	char	c;
 
-	power = 0;
+	power = 100;
 	ft_putstr_stderr("[bench] disorder:  ");
 	int_disorder = (int)(disorder * 10000 + 0.5);
-	if (int_disorder == 0)
-	{
-		ft_putstr_stderr("0,00%\n");
-		return ;
-	}
-	power = get_power(int_disorder);
+	if (int_disorder >= 1000)
+		power = 1000;
+	if (int_disorder >= 10000)
+		power = 10000;
 	while (power > 0)
 	{
 		if (power == 10)

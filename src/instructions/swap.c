@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:15:23 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:45:56 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 11:23:23 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ static bool	swap(t_stack *stack)
 	t_list	*swap_temp2;
 
 	if (stack->size < 2)
-	{
-		ft_printf("WARNING: tried to swap a stack of size %d\n", stack->size);
 		return (false);
-	}
 	swap_temp1 = ft_stackremove_head(stack);
 	swap_temp2 = ft_stackremove_head(stack);
 	ft_stackadd_head(stack, swap_temp1);
@@ -34,8 +31,7 @@ void	sa(t_stacks *stacks)
 {
 	stacks->op.total++;
 	stacks->op.sa++;
-	if (!(stacks->flags & NO_PRINT))
-		ft_printf("sa\n");
+	ft_printf("sa\n");
 	swap(stacks->a);
 }
 
@@ -43,8 +39,7 @@ void	sb(t_stacks *stacks)
 {
 	stacks->op.total++;
 	stacks->op.sb++;
-	if (!(stacks->flags & NO_PRINT))
-		ft_printf("sb\n");
+	ft_printf("sb\n");
 	swap(stacks->b);
 }
 
@@ -52,8 +47,7 @@ void	ss(t_stacks *stacks)
 {
 	stacks->op.total++;
 	stacks->op.ss++;
-	if (!(stacks->flags & NO_PRINT))
-		ft_printf("ss\n");
+	ft_printf("ss\n");
 	swap(stacks->a);
 	swap(stacks->b);
 }

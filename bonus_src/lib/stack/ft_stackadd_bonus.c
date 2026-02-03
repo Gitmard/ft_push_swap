@@ -12,14 +12,6 @@
 
 #include "stack_bonus.h"
 
-t_list	*ft_stackadd_new_head(t_stack *stack, int value)
-{
-	t_list	*new_head;
-
-	new_head = ft_lstnew(value);
-	return (ft_stackadd_head(stack, new_head));
-}
-
 t_list	*ft_stackadd_head(t_stack *stack, t_list *new_head)
 {
 	stack->head = ft_lstadd_head(stack->head, new_head);

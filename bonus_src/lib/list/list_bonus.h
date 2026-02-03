@@ -19,11 +19,7 @@
 t_list	*ft_lstnew(int value);
 
 /* ft_lstadd.c */
-t_list	*ft_lstadd_new_head(t_list *lst, int value);
-
 t_list	*ft_lstadd_head(t_list *lst, t_list *new);
-
-t_list	*ft_lstadd_new_tail(t_list *lst, int value);
 
 t_list	*ft_lstadd_tail(t_list *lst, t_list *new);
 

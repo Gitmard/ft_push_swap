@@ -15,12 +15,7 @@
 
 # include "stack_includes_bonus.h"
 
-/* ft_stacknew.c */
-t_stack	*ft_stacknew(void);
-
 /* ft_stackadd.c */
-t_list	*ft_stackadd_new_head(t_stack *stack, int value);
-
 t_list	*ft_stackadd_head(t_stack *stack, t_list *new_head);
 
 t_list	*ft_stackadd_new_tail(t_stack *stack, int value);

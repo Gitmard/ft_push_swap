@@ -13,14 +13,6 @@
 #include "list.h"
 #include "list_lib.h"
 
-t_list	*ft_lstadd_new_head(t_list *lst, int value)
-{
-	t_list	*new;
-
-	new = ft_lstnew(value);
-	return (ft_lstadd_head(lst, new));
-}
-
 t_list	*ft_lstadd_head(t_list *lst, t_list *new)
 {
 	t_list	*previous_head;
@@ -36,14 +28,6 @@ t_list	*ft_lstadd_head(t_list *lst, t_list *new)
 	new->next = previous_head;
 	new->prev = NULL;
 	return (new);
-}
-
-t_list	*ft_lstadd_new_tail(t_list *lst, int value)
-{
-	t_list	*new;
-
-	new = ft_lstnew(value);
-	return (ft_lstadd_tail(lst, new));
 }
 
 t_list	*ft_lstadd_tail(t_list *lst, t_list *new)

@@ -19,22 +19,9 @@
 # define LHEX_CHARSET "0123456789abcdef"
 # define UHEX_CHARSET "0123456789ABCDEF"
 
-# define FLAGS "-0.# +"
 # define CONVERSIONS "cspdiuxX%"
 
-typedef enum e_bool
-{
-	FALSE = 0,
-	TRUE = 1
-}					t_bool;
-
 typedef char		*t_string;
-
-typedef enum e_padding_side
-{
-	LEFT,
-	RIGHT
-}					t_padding_side;
 
 typedef enum e_value_type
 {

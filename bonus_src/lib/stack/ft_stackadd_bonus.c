@@ -6,19 +6,11 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:04:29 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/28 11:37:39 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/03 14:20:35 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_bonus.h"
-
-t_list	*ft_stackadd_new_head(t_stack *stack, int value)
-{
-	t_list	*new_head;
-
-	new_head = ft_lstnew(value);
-	return (ft_stackadd_head(stack, new_head));
-}
 
 t_list	*ft_stackadd_head(t_stack *stack, t_list *new_head)
 {

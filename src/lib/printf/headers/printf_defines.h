@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 13:51:05 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/18 19:18:23 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/03 14:17:43 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,7 @@
 # define FLAGS "-0.# +"
 # define CONVERSIONS "cspdiuxX%"
 
-typedef enum e_bool
-{
-	FALSE = 0,
-	TRUE = 1
-}					t_bool;
-
 typedef char		*t_string;
-
-typedef enum e_padding_side
-{
-	LEFT,
-	RIGHT
-}					t_padding_side;
 
 typedef enum e_value_type
 {

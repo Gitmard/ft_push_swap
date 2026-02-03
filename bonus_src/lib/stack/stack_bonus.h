@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:01:45 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/28 11:38:01 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/03 14:22:12 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,19 @@
 
 # include "stack_includes_bonus.h"
 
-/* ft_stacknew.c */
-t_stack	*ft_stacknew(void);
-
-/* ft_stackadd.c */
-t_list	*ft_stackadd_new_head(t_stack *stack, int value);
-
+/* ft_stackadd_bonus.c */
 t_list	*ft_stackadd_head(t_stack *stack, t_list *new_head);
 
 t_list	*ft_stackadd_new_tail(t_stack *stack, int value);
 
 t_list	*ft_stackadd_tail(t_stack *stack, t_list *new_tail);
 
-/* ft_stackremove.c */
+/* ft_stackremove_bonus.c */
 t_list	*ft_stackremove_head(t_stack *stack);
 
 t_list	*ft_stackremove_tail(t_stack *stack);
 
-/* get_previous_value.c */
+/* get_previous_value_bonus.c */
 t_list	*get_previous_node(t_list *current, t_list *tail);
 
 #endif

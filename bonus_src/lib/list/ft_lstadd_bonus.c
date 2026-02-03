@@ -6,20 +6,12 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:27:15 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/28 11:34:40 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/03 14:23:10 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list_bonus.h"
 #include "list_lib_bonus.h"
-
-t_list	*ft_lstadd_new_head(t_list *lst, int value)
-{
-	t_list	*new;
-
-	new = ft_lstnew(value);
-	return (ft_lstadd_head(lst, new));
-}
 
 t_list	*ft_lstadd_head(t_list *lst, t_list *new)
 {
@@ -36,14 +28,6 @@ t_list	*ft_lstadd_head(t_list *lst, t_list *new)
 	new->next = previous_head;
 	new->prev = NULL;
 	return (new);
-}
-
-t_list	*ft_lstadd_new_tail(t_list *lst, int value)
-{
-	t_list	*new;
-
-	new = ft_lstnew(value);
-	return (ft_lstadd_tail(lst, new));
 }
 
 t_list	*ft_lstadd_tail(t_list *lst, t_list *new)

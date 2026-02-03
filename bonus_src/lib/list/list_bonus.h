@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:10:00 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/28 11:35:12 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/03 14:23:51 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,21 @@
 
 # include "list_includes_bonus.h"
 
-/* ft_lstnew.c */
+/* ft_lstnew_bonus.c */
 t_list	*ft_lstnew(int value);
 
-/* ft_lstadd.c */
-t_list	*ft_lstadd_new_head(t_list *lst, int value);
-
+/* ft_lstadd_bonus.c */
 t_list	*ft_lstadd_head(t_list *lst, t_list *new);
 
-t_list	*ft_lstadd_new_tail(t_list *lst, int value);
 
 t_list	*ft_lstadd_tail(t_list *lst, t_list *new);
 
-/* ft_lstremove.c */
+/* ft_lstremove_bonus.c */
 t_list	*ft_lstremove_head(t_list *lst);
 
 t_list	*ft_lstremove_tail(t_list *lst);
 
-/* ft_lstclear.c */
+/* ft_lstclear_bonus.c */
 void	*ft_lstclear(t_list *lst_start);
 
 #endif

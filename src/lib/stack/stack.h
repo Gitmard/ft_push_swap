@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:01:45 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/12 10:40:49 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/03 14:21:50 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,7 @@
 
 # include "stack_includes.h"
 
-/* ft_stacknew.c */
-t_stack	*ft_stacknew(void);
-
 /* ft_stackadd.c */
-t_list	*ft_stackadd_new_head(t_stack *stack, int value);
-
 t_list	*ft_stackadd_head(t_stack *stack, t_list *new_head);
 
 t_list	*ft_stackadd_new_tail(t_stack *stack, int value);

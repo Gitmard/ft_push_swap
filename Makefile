@@ -168,7 +168,6 @@ LIB_PRINTF_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_PRINTF_DIR)/ft_printf.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_PRINTF_DIR)/utils.c
 
 LIB_STACK_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/ft_stackadd.c \
-						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/ft_stacknew.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/ft_stackremove.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STACK_DIR)/get_previous.c
 
@@ -176,7 +175,6 @@ LIB_STRING_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_STRING_DIR)/string.c
 
 LIB_UTILS_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/binary_search.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/check_sort.c \
-						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/print_stack.c \
 						./$(SRC_DIR)/$(LIB_DIR)/$(LIB_UTILS_DIR)/sort.c
 
 LIB_MATH_FILES =		./$(SRC_DIR)/$(LIB_DIR)/$(LIB_MATH_DIR)/math.c
@@ -417,7 +415,6 @@ BONUS_LIB_LIST_FILES = ./$(BONUS_SRC_DIR)/$(BONUS_LIB_DIR)/$(BONUS_LIB_LIST_DIR)
 BONUS_LIB_MEM_FILES = ./$(BONUS_SRC_DIR)/$(BONUS_LIB_DIR)/$(BONUS_LIB_MEM_DIR)/mem_bonus.c
 
 BONUS_LIB_STACK_FILES = ./$(BONUS_SRC_DIR)/$(BONUS_LIB_DIR)/$(BONUS_LIB_STACK_DIR)/ft_stackadd_bonus.c \
-						./$(BONUS_SRC_DIR)/$(BONUS_LIB_DIR)/$(BONUS_LIB_STACK_DIR)/ft_stacknew_bonus.c \
 						./$(BONUS_SRC_DIR)/$(BONUS_LIB_DIR)/$(BONUS_LIB_STACK_DIR)/ft_stackremove_bonus.c \
 						./$(BONUS_SRC_DIR)/$(BONUS_LIB_DIR)/$(BONUS_LIB_STACK_DIR)/get_previous_bonus.c
 

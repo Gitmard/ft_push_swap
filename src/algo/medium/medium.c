@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquetier <vquetier@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:51:45 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 11:36:32 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/02/02 17:30:00 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "medium_defines.h"
 
-void	(*locate_closest(t_stacks *stacks, uint32_t w_start,
+static void	(*locate_closest(t_stacks *stacks, uint32_t w_start,
 		uint32_t w_size))(t_stacks *stacks)
 {
 	t_list	*forward;
@@ -34,7 +34,7 @@ void	(*locate_closest(t_stacks *stacks, uint32_t w_start,
 	return (&ra);
 }
 
-int	fill_buckets(t_stacks *stacks, uint32_t w_size)
+static int	fill_buckets(t_stacks *stacks, uint32_t w_size)
 {
 	uint32_t	w_start;
 	bool		*poped;
@@ -59,7 +59,7 @@ int	fill_buckets(t_stacks *stacks, uint32_t w_size)
 	return (SUCCESS);
 }
 
-void	(*locate_top(t_stacks *stacks, uint32_t target))(t_stacks *stacks)
+static void	(*locate_top(t_stacks *stacks, uint32_t target))(t_stacks *stacks)
 {
 	t_list	*forward;
 	t_list	*backward;
@@ -80,7 +80,7 @@ void	(*locate_top(t_stacks *stacks, uint32_t target))(t_stacks *stacks)
 	return (&ra);
 }
 
-void	insert_in_a(t_stacks *stacks, uint32_t size)
+static void	insert_in_a(t_stacks *stacks, uint32_t size)
 {
 	uint32_t	top_index;
 	void		(*f)(t_stacks *);

@@ -6,13 +6,13 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 15:16:39 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/02 15:44:26 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:24:10 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bench_defines.h"
 
-void	print_disorder(float disorder)
+static void	print_disorder(float disorder)
 {
 	int		int_disorder;
 	int		power;
@@ -37,7 +37,7 @@ void	print_disorder(float disorder)
 	ft_putstr_stderr("%\n");
 }
 
-void	print_strategy(t_stacks *stacks, float disorder)
+static void	print_strategy(t_stacks *stacks, float disorder)
 {
 	ft_putstr_stderr("[bench] strategy:  ");
 	if (((stacks->flags ^ BENCH) & ADAPTIVE)
@@ -60,7 +60,7 @@ void	print_strategy(t_stacks *stacks, float disorder)
 		ft_putstr_stderr("O(n log n)\n");
 }
 
-void	print_op(t_op op)
+static void	print_op(t_op op)
 {
 	ft_putstrnbr_stderr("[bench] total_ops:  ", op.total);
 	ft_putstrnbr_stderr("\n[bench] sa:  ", op.sa);

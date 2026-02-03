@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:01:04 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 13:29:18 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:04:36 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,5 @@
 
 void	(**get_functions(void))(t_stacks *stacks);
 char	**get_op(void);
-
-# define NO_DRAIN 0
-# define DRAIN_STDIN 1
 
 #endif

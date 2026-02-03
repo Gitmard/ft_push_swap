@@ -6,13 +6,13 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 14:23:52 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/02 15:14:37 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:25:45 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_defines.h"
 
-int	add_in_struct(int value, t_stacks *stacks, t_set *set)
+static int	add_in_struct(int value, t_stacks *stacks, t_set *set)
 {
 	if (add_in_set(set, value) == ALREADY_IN)
 		return (ERROR);
@@ -50,7 +50,7 @@ int	atoi_check(char *arg, t_stacks *stacks, t_set *set)
 	return (add_in_struct((int)(ret * sign), stacks, set));
 }
 
-t_stacks	*create_stacks(void)
+static t_stacks	*create_stacks(void)
 {
 	t_stacks	*stacks;
 

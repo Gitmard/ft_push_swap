@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:24:37 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 11:40:26 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:12:15 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool	is_sorted(t_stacks *stacks)
 	if (stacks->combined_sizes <= 1)
 		return (true);
 	iter = stacks->a->head;
-	while (iter->next)
+	while (iter && iter->next)
 	{
 		if (iter->value > iter->next->value)
 			return (false);

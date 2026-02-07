@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:00:48 by smenard           #+#    #+#             */
-/*   Updated: 2026/01/27 11:23:30 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/07 14:06:02 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	get_a_cost(t_stack *a, t_list *node, int min, int max)
 	while (current && current->next)
 	{
 		previous_node = get_previous_node(current, a->tail);
+		if (!previous_node)
+			return (-1);
 		if ((previous_node->value < node->value || (previous_node->value == max
 					&& current->value != min)) && (current->value > node->value
 				|| (current->value == min && previous_node->value != max)))

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 12:55:53 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/02 17:14:25 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/07 14:02:57 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	main(int ac, char **av)
 		return (raise_error());
 	if (is_sorted(stacks))
 	{
+		if (stacks->flags & BENCH)
+			bench(stacks, calculate_disorder(stacks->a));
 		free_stacks(stacks, FREE_STACKS_ALL);
 		return (SUCCESS);
 	}

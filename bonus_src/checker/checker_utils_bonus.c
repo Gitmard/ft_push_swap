@@ -6,31 +6,20 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:13:31 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/28 15:55:29 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/02/15 13:22:20 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-char	**get_op(void)
+static void	flush_stdout(void)
 {
-	char	**operations;
+	char	buffer[256];
+	int		rd_char;
 
-	operations = malloc(sizeof(char *) * 11);
-	if (!operations)
-		return (NULL);
-	operations[0] = "pa\n";
-	operations[1] = "pb\n";
-	operations[2] = "ra\n";
-	operations[3] = "rb\n";
-	operations[4] = "rra\n";
-	operations[5] = "rrb\n";
-	operations[6] = "rr\n";
-	operations[7] = "rrr\n";
-	operations[8] = "sa\n";
-	operations[9] = "sb\n";
-	operations[10] = "ss\n";
-	return (operations);
+	rd_char = read(0, buffer, 256);
+	while (rd_char > 0)
+		rd_char = read(0, buffer, 256);
 }
 
 void	(**get_functions(void))(t_stacks *stacks)
@@ -52,4 +41,22 @@ void	(**get_functions(void))(t_stacks *stacks)
 	f[9] = &sb;
 	f[10] = &ss;
 	return (f);
+}
+
+void	raise_error_checker(void)
+{
+	write(2, "Error\n", 6);
+}
+
+void	clean_exit(t_stacks *stacks, uint32_t flags, int value)
+{
+	uint32_t	free_flag;
+
+	free_flag = flags & FREE_STACKS_ALL;
+	free_stacks(stacks, free_flag);
+	if (flags & RAISE_ERROR)
+		raise_error_checker();
+	if (!(flags & DONT_FLUSH_STDOUT))
+		flush_stdout();
+	exit(value);
 }

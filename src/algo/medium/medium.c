@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:51:45 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/02 17:30:00 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/15 13:14:08 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	medium(t_stacks *stacks)
 	uint32_t	w_size;
 
 	w_size = ft_sqrt(stacks->a->size);
-	if (fill_buckets(stacks, w_size))
+	if (fill_buckets(stacks, w_size) == ERROR)
 		return (ERROR);
 	insert_in_a(stacks, stacks->b->size);
 	return (SUCCESS);

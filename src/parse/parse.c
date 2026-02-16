@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:39:30 by vquetier          #+#    #+#             */
-/*   Updated: 2026/01/27 13:40:01 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/16 12:03:51 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,15 @@ int	check_flags(t_stacks *stacks)
 	uint32_t	flags;
 
 	flags = ADAPTIVE | SIMPLE | MEDIUM | COMPLEX;
-	if ((stacks->flags & flags) == ADAPTIVE)
-		return (SUCCESS);
-	if ((stacks->flags & flags) == SIMPLE)
-		return (SUCCESS);
-	if ((stacks->flags & flags) == MEDIUM)
-		return (SUCCESS);
-	if ((stacks->flags & flags) == COMPLEX)
-		return (SUCCESS);
-	if (stacks->flags == BENCH || stacks->flags == 0)
-		return (SUCCESS);
-	return (ERROR);
+	if ((stacks->flags & ADAPTIVE) && (stacks->flags & flags) != ADAPTIVE)
+		return (ERROR);
+	if ((stacks->flags & SIMPLE) && (stacks->flags & flags) != SIMPLE)
+		return (ERROR);
+	if ((stacks->flags & MEDIUM) && (stacks->flags & flags) != MEDIUM)
+		return (ERROR);
+	if ((stacks->flags & COMPLEX) && (stacks->flags & flags) != COMPLEX)
+		return (ERROR);
+	return (SUCCESS);
 }
 
 t_stacks	*parse(int ac, char **av)

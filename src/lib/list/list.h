@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:10:00 by smenard           #+#    #+#             */
-/*   Updated: 2025/12/18 15:25:36 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/03 14:22:36 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@
 t_list	*ft_lstnew(int value);
 
 /* ft_lstadd.c */
-t_list	*ft_lstadd_new_head(t_list *lst, int value);
-
 t_list	*ft_lstadd_head(t_list *lst, t_list *new);
-
-t_list	*ft_lstadd_new_tail(t_list *lst, int value);
 
 t_list	*ft_lstadd_tail(t_list *lst, t_list *new);
 

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:39:30 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/16 12:03:51 by vquetier         ###   ########lyon.fr   */
+/*   Updated: 2026/02/16 13:34:26 by vquetier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,16 @@ int	parse_current(char *arg, t_stacks *stacks, t_set *set)
 
 int	check_flags(t_stacks *stacks)
 {
-	uint32_t	flags;
+	uint32_t	strategies;
 
-	flags = ADAPTIVE | SIMPLE | MEDIUM | COMPLEX;
-	if ((stacks->flags & ADAPTIVE) && (stacks->flags & flags) != ADAPTIVE)
+	strategies = ADAPTIVE | SIMPLE | MEDIUM | COMPLEX;
+	if ((stacks->flags & ADAPTIVE) && (stacks->flags & strategies) != ADAPTIVE)
 		return (ERROR);
-	if ((stacks->flags & SIMPLE) && (stacks->flags & flags) != SIMPLE)
+	if ((stacks->flags & SIMPLE) && (stacks->flags & strategies) != SIMPLE)
 		return (ERROR);
-	if ((stacks->flags & MEDIUM) && (stacks->flags & flags) != MEDIUM)
+	if ((stacks->flags & MEDIUM) && (stacks->flags & strategies) != MEDIUM)
 		return (ERROR);
-	if ((stacks->flags & COMPLEX) && (stacks->flags & flags) != COMPLEX)
+	if ((stacks->flags & COMPLEX) && (stacks->flags & strategies) != COMPLEX)
 		return (ERROR);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:00:36 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/15 13:22:20 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/16 14:20:57 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,11 @@ int	main(int ac, char **av)
 	stacks = parse(ac, av);
 	if (!stacks)
 		clean_exit(stacks, RAISE_ERROR, 1);
-	if (!stacks->combined_sizes)
-		clean_exit(stacks, FREE_STACKS_ALL | DONT_FLUSH_STDOUT, 0);
 	if (stacks->flags != 0)
 		clean_exit(stacks, FREE_STACKS_ALL | RAISE_ERROR, 1);
-	if (handle_operations(stacks, get_op(), get_functions()))
+	if (!stacks->combined_sizes)
+		clean_exit(stacks, FREE_STACKS_ALL, 0);
+	if (handle_operations(stacks, get_op(), get_functions()) == ERROR)
 		clean_exit(stacks, FREE_STACKS_ALL | RAISE_ERROR, 1);
 	if (is_sorted(stacks))
 		write(1, "OK\n", 3);

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:42:49 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/15 13:22:20 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/16 14:16:08 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # define FREE_LISTS 8
 # define FREE_STACKS_ALL 15
 # define RAISE_ERROR 32
-# define DONT_FLUSH_STDOUT 64
 
 # define ADAPTIVE 1
 # define SIMPLE 2

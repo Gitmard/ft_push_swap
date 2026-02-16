@@ -6,21 +6,11 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:13:31 by vquetier          #+#    #+#             */
-/*   Updated: 2026/02/15 13:22:20 by smenard          ###   ########.fr       */
+/*   Updated: 2026/02/16 14:16:20 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-
-static void	flush_stdout(void)
-{
-	char	buffer[256];
-	int		rd_char;
-
-	rd_char = read(0, buffer, 256);
-	while (rd_char > 0)
-		rd_char = read(0, buffer, 256);
-}
 
 void	(**get_functions(void))(t_stacks *stacks)
 {
@@ -56,7 +46,5 @@ void	clean_exit(t_stacks *stacks, uint32_t flags, int value)
 	free_stacks(stacks, free_flag);
 	if (flags & RAISE_ERROR)
 		raise_error_checker();
-	if (!(flags & DONT_FLUSH_STDOUT))
-		flush_stdout();
 	exit(value);
 }
